@@ -1,0 +1,263 @@
+
+<!-- end /. header -->
+<div class="map-wrapper">
+    <!-- start sidebar filters -->
+    <app-filterbar></app-filterbar>
+    <!-- end /. sidebar filters -->
+    <!-- start items content -->
+    <div class="items-content bg-light d-flex flex-column py-3 p-xl-4">
+        <div class="d-flex flex-wrap align-items-center mb-3 gap-2">
+            <div class="col fs-18 text-nowrap"> <span class="fw-bold text-dark">{{global.totalDoctors}}</span> doctores encontrados</div>
+            <!-- start button group -->
+            <div class="border-0 card d-inline-flex flex-row flex-wrap gap-1 p-1 rounded-3 shadow-sm">
+                <a (click)="global.setView('grid')" style="cursor: pointer;"class="btn btn-light btn-sm px-2 py-1"><i class="fa-solid fa-border-all"></i></a>
+                <a (click)="global.setView('list')"style="cursor: pointer;"class="btn btn-light btn-sm px-2 py-1"><i class="fa-solid fa-list"></i></a>
+            </div>
+            <!-- end /. button group -->
+        </div>
+        <div [hidden]="global.selectedView!=='list'" class="mb-4">
+            <!-- start card list -->
+            <div class="card border-0 shadow-sm overflow-hidden rounded-4 mb-4 card-hover card-hover-bg" *ngFor="let doctor of global.doctors">
+                <a class="stretched-link"></a>
+                <div class="card-body p-0" [hidden]="global.filtered && global.specialtySelected!==doctor.specialty">
+                    <div class="g-0 row">
+                        <div class="col-lg-5 col-md-5 col-xl-12 col-xxl-5 position-relative">
+                            <div class="card-image-hover dark-overlay h-100 overflow-hidden position-relative">
+                                <!-- start image -->
+                                <img src="{{doctor.image}}" alt="" class="h-100 w-100 object-fit-cover" style="max-height: 300px;">
+                                <!-- end /. image -->
+                                <div class="bg-blur card-badge d-inline-block position-absolute start-0 text-white z-2">
+                                    <!-- <i class="fa-solid fa-star"></i>  -->
+                                    <div *ngFor="let specialty of global.specialties">
+                                        <span [hidden]="specialty.id.toString() !== doctor.specialty"> {{specialty.name}}</span>
+                                    </div>
+                                    
+                                </div>
+                                <!-- <div class="align-items-center bg-blur border-0 card-badge d-flex d-inline-block fw-semibold gap-1 position-absolute start-0 text-uppercase text-white z-2">$100 off $399: eblwc</div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-xl-12 col-xxl-7 p-3 p-lg-4 p-md-3 p-sm-4">
+                            <div class="d-flex flex-column h-100">
+                                <div class="d-flex end-0 gap-2 me-3 mt-3 position-absolute top-0 z-1">
+                                    <a href="listings-map-car.html" class="btn-icon shadow-sm d-flex align-items-center justify-content-center text-primary bg-light rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Bookmark">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="align-items-center d-flex flex-wrap gap-1 text-primary  card-start mb-2">
+                                    <!-- start ratings -->
+                                    <i class="fa-solid fa-star"></i>
+                                    <!-- end /. ratings -->
+                                    <!-- start rating counter text -->
+                                    <span class="fw-medium text-primary"><span class="fs-6 fw-semibold me-1">(4.5)</span>2,391 reviews</span>
+                                    <!-- end /. rating counter text -->
+                                </div>
+                                <!-- start card title -->
+                                <h4 class="fs-18 fw-semibold mb-0">
+                                    {{doctor.name}}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-patch-check-fill text-success" viewBox="0 0 16 16">
+                                        <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"></path>
+                                    </svg>
+                                </h4>
+                                <!-- end /. card title -->
+                                <!-- start card description -->
+                                <p class="mt-1 mb-3 small">{{doctor.address}}</p>
+                                <!-- end /. card description -->
+                                <!-- Start meta info -->
+                                <div class="border fs-15 fw-medium gap-2 hstack mb-2 p-3 rounded-3 text-center">
+                                    <div class="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-speedometer2 me-1" viewBox="0 0 16 16">
+                                            <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+                                            <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3" />
+                                        </svg>
+                                        <span>69 Miles</span>
+                                    </div>
+                                    <span class="vr"></span>
+                                    <div class="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-fuel-pump me-1" viewBox="0 0 16 16">
+                                            <path d="M3 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5z" />
+                                            <path d="M1 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8a2 2 0 0 1 2 2v.5a.5.5 0 0 0 1 0V8h-.5a.5.5 0 0 1-.5-.5V4.375a.5.5 0 0 1 .5-.5h1.495c-.011-.476-.053-.894-.201-1.222a.97.97 0 0 0-.394-.458c-.184-.11-.464-.195-.9-.195a.5.5 0 0 1 0-1c.564 0 1.034.11 1.412.336.383.228.634.551.794.907.295.655.294 1.465.294 2.081v3.175a.5.5 0 0 1-.5.501H15v4.5a1.5 1.5 0 0 1-3 0V12a1 1 0 0 0-1-1v4h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1zm9 0a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v13h8z" />
+                                        </svg>
+                                        <span>Petrol</span>
+                                    </div>
+                                    <span class="vr"></span>
+                                    <div class="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-shuffle me-1" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5" />
+                                            <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z" />
+                                        </svg>
+                                        <span>CVT</span>
+                                    </div>
+                                </div>
+                                <!-- end /. Meta info -->
+                                <!-- start contact content -->
+                                <div class="d-flex flex-wrap gap-3 mt-auto z-1">
+                                    <a href="tel:+4733378901" class="d-flex gap-2 align-items-center fs-13 fw-semibold">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#9b9b9b" class="bi bi-telephone" viewBox="0 0 16 16">
+                                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                        </svg>
+                                        <span>{{doctor.phone}}</span>
+                                    </a>
+                                    <a href="listings-map-car.html#" class="d-flex gap-2 align-items-center fs-13 fw-semibold">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#9b9b9b" class="bi bi-compass" viewBox="0 0 16 16">
+                                            <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016zm6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                            <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z" />
+                                        </svg>
+                                        <span>Directions</span>
+                                    </a>
+                                </div>
+                                <!-- end contact content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div [hidden]="global.selectedView!=='grid' "  class="row g-4 mb-5">
+            <div class="col-sm-6 col-lg-4 col-xl-12 col-xxl-6 d-flex" *ngFor="let doctor of global.doctors" >
+                <!-- start listing card -->
+                <div class="card rounded-3 border-0 shadow-sm w-100 flex-fill overflow-hidden card-hover flex-fill w-100 card-hover-bg" [hidden]="global.filtered && global.specialtySelected!==doctor.specialty">
+                    <!-- start card link -->
+                    <a  class="stretched-link"></a>
+                    <!-- end /. card link -->
+                    <!-- start card image wrap -->
+                    <div class="card-img-wrap card-image-hover overflow-hidden dark-overlay">
+                        <img src="{{doctor.image}}" alt="" class="img-fluid">
+                        <div class="bg-blur card-badge d-inline-block position-absolute start-0 text-white z-2">
+                            <!-- <i class="fa-solid fa-star"></i>  -->
+                            <div *ngFor="let specialty of global.specialties">
+                                <span [hidden]="specialty.id.toString() !== doctor.specialty"> {{specialty.name}}</span>
+                            </div>
+                            
+                        </div>
+                        <!-- <div class="bg-blur card-badge d-inline-block position-absolute start-0 text-white z-2"><i class="fa-solid fa-tag"></i> $12.00 - $40.00</div>
+                        <div class="d-flex end-0 gap-2 me-3 mt-3 position-absolute top-0 z-1">
+                            <a  class="align-items-center bg-blur btn-icon d-flex justify-content-center rounded-circle shadow-sm text-white" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Bookmark">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"></path>
+                                </svg>
+                            </a>
+                        </div> -->
+                    </div>
+                    <!-- end /. card image wrap -->
+                    <div class="d-flex flex-column h-100 position-relative p-3">
+                        <div class="align-items-center bg-primary cat-icon d-flex justify-content-center position-absolute rounded-circle text-white"><i class="fa-solid fa-shop"></i></div>
+                        <div class="align-items-center d-flex flex-wrap gap-1 text-primary card-start mb-1">
+                            <!-- start ratings -->
+                            <i class="fa-solid fa-star"></i>
+                            <!-- end /. ratings -->
+                            <!-- start ratings counter text -->
+                            <span class="fw-medium text-primary"><span class="fs-6 fw-semibold me-1">(4.5)</span>2,391 reviews</span>
+                            <!-- end /. ratings counter text -->
+                        </div>
+                        <!-- start card title -->
+                        <h4 class="fs-18 fw-semibold mb-0">
+                            {{doctor.name}}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-patch-check-fill text-success" viewBox="0 0 16 16">
+                                <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg>
+                        </h4>
+                        <!-- end /. card title -->
+                        <!-- start contact content -->
+                        <div class="d-flex flex-wrap gap-3 mt-2 z-1">
+                            <a href="tel:+4733378901" class="d-flex gap-2 align-items-center fs-13 fw-semibold">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#9b9b9b" class="bi bi-telephone" viewBox="0 0 16 16">
+                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                </svg>
+                                <span>{{doctor.phone}}</span>
+                            </a>
+                            <a href="listings-map-grid-1.html#" class="d-flex gap-2 align-items-center fs-13 fw-semibold">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#9b9b9b" class="bi bi-compass" viewBox="0 0 16 16">
+                                    <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016zm6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                    <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z" />
+                                </svg>
+                                <span>{{doctor.address}}</span>
+                            </a>
+                        </div>
+                        <!-- end contact content -->
+                    </div>
+                </div>
+                <!-- end /. listing card -->
+            </div>
+        </div>
+
+
+
+        <!-- start pagination -->
+        <nav class="justify-content-center mt-auto pagination align-items-center">
+            <a class="prev page-numbers" href="listings-map-car.html#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                </svg>
+                anterior
+            </a>
+            <span class="page-numbers current">1</span>
+            <a class="page-numbers" href="listings-map-car.html#">2</a>
+            <a class="next page-numbers" href="listings-map-car.html#">
+                proxima
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                </svg>
+            </a>
+        </nav>
+        <!-- end /. pagination -->
+    </div>
+    <!-- end /. items content -->
+    <!-- start map content -->
+    <div class="map-content">
+        <button type="button" class="sidebarCollapse collapseText btn btn-primary ms-4 mt-4 position-absolute start-0 top-0 align-items-center gap-2 hstack filters-text gap-1 d-none d-xl-flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"></path>
+                <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"></path>
+            </svg>
+            <span>Ocultar filtros</span>
+        </button>
+        <div class="d-flex inner-wrap--top p-3 position-absolute start-0 top-0 w-100 d-xl-none">
+            <!-- map close icon -->
+            <div class="align-items-center d-flex flex-shrink-0 justify-content-center map-close-icon rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg>
+            </div>
+            <!-- map search input -->
+            <div class="search-select-input has-icon has-icon-y position-relative flex-grow-1 ms-2">
+                <!-- input -->
+                <input class="form-control" type="text" placeholder="Qué estás buscando?">
+                <!-- icon -->
+                <svg class="form-icon-start position-absolute top-50 bi bi-pin-map-fill" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z" />
+                    <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z" />
+                </svg>
+                <!-- icon -->
+                <svg class="form-icon-end position-absolute top-50 bi bi-crosshair" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#9b9b9b" viewBox="0 0 16 16">
+                    <path d="M8.5.5a.5.5 0 0 0-1 0v.518A7.001 7.001 0 0 0 1.018 7.5H.5a.5.5 0 0 0 0 1h.518A7.001 7.001 0 0 0 7.5 14.982v.518a.5.5 0 0 0 1 0v-.518A7.001 7.001 0 0 0 14.982 8.5h.518a.5.5 0 0 0 0-1h-.518A7.001 7.001 0 0 0 8.5 1.018V.5Zm-6.48 7A6.001 6.001 0 0 1 7.5 2.02v.48a.5.5 0 0 0 1 0v-.48a6.001 6.001 0 0 1 5.48 5.48h-.48a.5.5 0 0 0 0 1h.48a6.002 6.002 0 0 1-5.48 5.48v-.48a.5.5 0 0 0-1 0v.48A6.001 6.001 0 0 1 2.02 8.5h.48a.5.5 0 0 0 0-1h-.48ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                </svg>
+                <!-- select -->
+                <select class="input-select position-absolute top-50">
+                    <option selected>0.5 km</option>
+                    <option value="1">1 km</option>
+                    <option value="2">5 km</option>
+                    <option value="3">10 km</option>
+                </select>
+            </div>
+        </div>
+        <!-- filter button -->
+        <div class="all-filters-wrap bottom-0 mb-5 position-absolute start-0 text-center w-100 d-xl-none">
+            <div class="align-items-center all-filters d-inline-flex fw-semibold gap-2 justify-content-center px-4 py-3 rounded-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"></path>
+                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"></path>
+                </svg>
+                <span>Todos los filtros</span>
+            </div>
+        </div>
+        <!-- start map -->
+        <div id="mapCanvasTwo" class="map-grid map-full shadow-left"></div>
+        <!-- end /. map -->
+    </div>
+    <!-- end /. map content -->
+</div>
+

@@ -1,0 +1,221 @@
+<div class="header_area" id="header_contents">
+    <!--  <div class="top_bar style_one">
+        <div class="auto-container">
+           <div class="row align-items-center">
+              <div class="col-lg-12">
+                 <div class="top_inner">
+                    <div class="left_side common_css">
+                       <div class="contntent address">
+                          <i class="icon-placeholder"></i>
+                          <div class="text">
+                             <small>Location</small>
+                             <span>61W Business Str Hobert, LA </span>
+                          </div>
+                       </div>
+                       <div class="contntent email">
+                          <i class="icon-email"></i>
+                          <div class="text">
+                             <small>Email</small>
+                             <a href="mailto:email">email</a>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="right_side common_css">
+                       <div class="contntent phone">
+                          <i class="icon-phone-call"></i>
+                          <div class="text">
+                             <small>Phone</small>
+                             <a href="tel:+9806071234">+9806071234</a>
+                          </div>
+                       </div>
+                       <div class="contntent media">
+                          <i class="icon-share"></i>
+                          <div class="text">
+                             <small>Share</small>
+                             <a href="#" target=_blank rel=nofollow>
+                                <small>Fb</small>
+                             </a>
+                             <a href="#" target=_blank rel=nofollow>
+                                <small>Tw</small>
+                             </a>
+                             <a href="#" target=_blank rel=nofollow>
+                                <small>Sk</small>
+                             </a>
+                             <a href="#" target=_blank rel=nofollow>
+                                <small>Te</small>
+                             </a>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div> -->
+     <header class="header header_default style_one get_sticky_header">
+        <div class="auto-container">
+           <div class="row align-items-center">
+              <div class="col-lg-2 col-md-9 col-sm-9 col-xs-9 logo_column">
+                 <div class="header_logo_box">
+                    <a (click)="global.setRoute('home')"  class="logo navbar-brand">
+                       <img src="assets/legales/images/logo-default.png" alt="Creote Elementor" class="logo_default">
+                       <img src="assets/legales/images/logo-default.png" alt="Creote Elementor" class="logo__sticky">
+                    </a>
+                 </div>
+              </div>
+              <div class="col-lg-10 col-md-3 col-sm-3 col-xs-3 menu_column">
+                 <div class="navbar_togglers hamburger_menu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                 </div>
+                 <div class="header_content_collapse">
+                    <div class="header_menu_box">
+                       <div class="navigation_menu">
+                          <ul id="myNavbar" class="navbar_nav">
+                             <li
+                                class="menu-item  position-static nav-item">
+                                <a (click)="global.setRoute('home')"  class="dropdown-toggle nav-link">
+                                   <span>Inicio</span>
+                                </a>
+                                
+                             </li>
+                             <li class="menu-item menu-item-has-children dropdown nav-item">
+                                <a class="dropdown-toggle nav-link">
+                                   <span>Nosotros</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                   <li class="menu-item  nav-item">
+                                      <a (click)="global.setRoute('about')" class="dropdown-item nav-link">
+                                         <span>Quienes somos</span>
+                                      </a>
+                                   </li>
+                                   
+                                  <li class="menu-item  nav-item">
+                                     <a (click)="global.setRoute('faq')" class="dropdown-item nav-link">
+                                        <span>Faq</span>
+                                     </a>
+                                  </li>
+                                   <li class="menu-item menu-item-has-children dropdown nav-item">
+                                      <a 
+                                         class="dropdown-item nav-link"><span>Aplicación Garente</span></a>
+                                      
+                                   </li>
+                                   
+                                </ul>
+                             </li>
+                             <li class="menu-item menu-item-has-children dropdown dropdown_full position-static mega_menu nav-item">
+                               <a (click)="global.setRoute('service')" class="dropdown-toggle nav-link"><span>Especialidades</span></a>
+                               <ul class="dropdown-menu width_60_percentage">
+                                   <li>
+                                       <div class="row">
+                                          <div class="col-lg-3 m_column">
+                                             <a (click)="global.setRoute('serv-emp')"> <h5>Derecho de los Negocios y de la Empresa</h5></a>
+                                              <div class="list_item_box style_one">
+                                                  <ul>
+                                                      <li>Derecho societario y manejo corporativo</li>
+                                                      <li>Fusiones y adquisiciones</li>
+                                                      <li>Asuntos Regulatorios y Sanitarios INVIMA</li>
+                                                      <li>Competencia desleal</li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-3 m_column">
+                                             <a (click)="global.setRoute('serv-pro-int')"><h5>Propiedad Intelectual</h5></a>
+                                              <div class="list_item_box style_one">
+                                                  <ul>
+                                                      <li>Registro de Patentes</li>
+                                                      <li>Registros de Marca</li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                           <div class="col-lg-3 m_column">
+                                               <a (click)="global.setRoute('serv-penal')"><h5>Derecho penal</h5></a>
+                                               <div class="list_item_box style_one">
+                                                   <ul>
+                                                       <!-- <li><a href="elements/testimonial.html">Testimonial</a></li>
+                                                       <li><a href="elements/call-to-action.html">Contact List</a>
+                                                       </li>
+                                                       <li><a href="elements/video-button.html">Video Button</a></li>
+                                                       <li><a href="elements/newsteller.html">Newsteller</a></li>
+                                                       <li><a href="elements/blog-posts.html">Blog Posts</a></li>
+                                                       <li><a href="elements/team.html">Team</a></li> -->
+                                                   </ul>
+                                               </div>
+                                           </div>
+                                           <div class="col-lg-3 m_column">
+                                              <a (click)="global.setRoute('serv-civil')"><h5>Derecho civil</h5></a>
+                                               <div class="list_item_box style_one">
+                                                   <ul>
+                                                       <!-- <li><a href="elements/process.html">Process</a></li>
+                                                       <li><a href="elements/project-carousel.html">Project
+                                                               Carousel</a></li>
+                                                       <li><a href="elements/project-filter.html">Project Filter</a>
+                                                       </li>
+                                                       <li><a href="elements/progress-bar.html">Progress Bar</a></li>
+                                                       <li><a href="elements/content-box.html">Content Box</a></li>
+                                                       <li><a href="elements/faqs-elements.html">Faq’s</a></li> -->
+                                                   </ul>
+                                               </div>
+                                           </div>
+                                           <div class="col-lg-3 m_column">
+                                              <a (click)="global.setRoute('serv-inmo')"><h5>Derecho inmobiliario y urbanístico</h5></a>
+                                               <div class="list_item_box style_one">
+                                                   <ul>
+                                                       <!-- <li><a href="elements/button.html">Button</a></li>
+                                                       <li><a href="elements/list-items.html">List Items</a></li>
+                                                       <li><a href="elements/contact-form.html">Contact Form</a></li>
+                                                       <li><a href="elements/service-post.html">Service Post</a></li>
+                                                       <li><a href="elements/sliders.html">Sliders</a></li>
+                                                       <li><a href="elements/tabs.html">Tabs</a></li> -->
+                                                   </ul>
+                                               </div>
+                                           </div>
+                                           <div class="col-lg-3 m_column">
+                                              <a (click)="global.setRoute('serv-adu-ext')"> <h5>Derecho Aduanero, Cambiario y Comercio Exterior</h5></a>
+                                               <div class="list_item_box style_one">
+                                                   <ul>
+                                                       <!-- <li><a href="elements/call-to-action.html">Call to Action</a>
+                                                       </li>
+                                                       <li><a href="elements/extra-content.html">Extra Content</a>
+                                                       </li>
+                                                       <li><a href="elements/simple-image.html">Simple Image</a></li>
+                                                       <li><a href="elements/client-image.html">Client Image</a></li>
+                                                       <li><a href="elements/price-plan.html">Price Plan</a></li>
+                                                       <li><a href="elements/title.html">Title</a></li> -->
+                                                   </ul>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </li>
+                               </ul>
+                           </li>
+                           
+                             <li class="menu-item nav-item">
+                                <a (click)="global.setRoute('blog')" class=" nav-link">
+                                   <span>Blog</span>
+                                </a>
+                               
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                    <div class="header_right_content">
+                       <ul>
+                         <li class="header-button">
+                             <a  target="_blank" rel="" class="theme-btn one"> Aplicación servicio de garente </a>
+                          </li>
+                          <li>
+                             <button type="button" class="contact-toggler"><i class="icon-bar"></i></button>
+                          </li>
+                         <!--  <li>
+                             <button type="button" ><i class="fa fa-whatsapp"></i></button>
+                          </li> -->
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </header>
+  </div>
