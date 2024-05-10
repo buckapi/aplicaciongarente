@@ -55,10 +55,17 @@
                            Cliente/Usuario y la entidad.
                         </p>
                         <div class="n-summary col-2" style="text-align: initial;">
-                           <label>
-                              <input type="radio" id="clientType" value="existente" name="clientType"
-                                 required data-parsley-required
-                                 data-parsley-required-message="Por favor, acepte para continuar">
+                           <label >
+                              
+ 
+                              <input 
+                              type="checkbox" 
+                              class="form-control" 
+                              id="terminos" 
+                              placeholder="Por favor, acepte para continuar" 
+                              formControlName="terminos"
+                              required [ngClass]="{ 'is-invalid': 
+                              submitted && f['terminos'].errors }" >
                               <span class="checkmark">Si Autorizo</span>
                            </label>
                         </div>
@@ -103,7 +110,11 @@
                                        class="form-control" 
                                        id="email" 
                                        placeholder="Correo electrónico" 
-                                       formControlName="email">
+                                       formControlName="email"
+                                       required [ngClass]="{ 'is-invalid': 
+                                       submitted && f['email'].errors }"   
+                                    >
+                                       
 
                                     <label>Correo electrónico</label>
                                  </div>
@@ -141,7 +152,8 @@
                                     class="form-control" 
                                     id="name" 
                                     placeholder="Nombre completo" 
-                                    formControlName="name">
+                                    formControlName="name" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['name'].errors }">
 
                                     <label>Nombre completo</label>
                                  </div>
@@ -167,8 +179,9 @@
                                     type="text" 
                                     class="form-control" 
                                     id="di" 
-                                    placeholder="Cedula de identidad" 
-                                    formControlName="di">
+                                    placeholder="Cedula de ciudadania" 
+                                    formControlName="di" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['di'].errors }">
                                     <label>Número de documento</label>
                                  </div>
                               </div>
@@ -180,7 +193,8 @@
                                     class="form-control" 
                                     id="placExpd" 
                                     placeholder="Lugar de expedición" 
-                                    formControlName="placExpd">
+                                    formControlName="placExpd" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['placExpd'].errors }">
                                     <label>Lugar de expedición</label>
                                  </div>
                               </div>
@@ -192,7 +206,8 @@
                                     class="form-control" 
                                     id="numWhat" 
                                     placeholder="Numero de celular WhatsApp" 
-                                    formControlName="numWhat">
+                                    formControlName="numWhat" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['numWhat'].errors }">
                                     <label>Numero de celular WhatsApp</label>
                                  </div>
                               </div>
@@ -203,12 +218,13 @@
                                  <h4 style="padding-bottom: 20px;">Conozcámonos mejor. Cuénteme una breve
                                     descripción de su actividad laboral o trabajo, cual es el cálculo de
                                     tus ingresos mensuales y por cuanto tiempo te dedicas a esto.</h4>
-                                 <input type="text" class="form-control" name="labor" id="labor"
-                                    placeholder="Escriba aquí su actividad laboral" required
-                                    data-parsley-required-message="Por favor, describa su actividad laboral"
-                                    data-parsley-minlength="20"
-                                    data-parsley-minlength-message="La descripción debe tener al menos 20 caracteres"
-                                    style="height: 100px;">
+                                    <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="infLabol" 
+                                    placeholder="Por favor, describa su actividad laboral" 
+                                    formControlName="infLabol" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['infLabol'].errors }">
 
                               </div>
                               <div class="wizard-content-item text-center col-md-12">
@@ -220,49 +236,66 @@
                               <div class="col-md-4">
                                  <div
                                     class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" id="documentNumber" class="form-control"
-                                       name="documentNumber" placeholder="Dirección del apartamento"
-                                       required
-                                       data-parsley-required-message="Por favor, ingresa el Dirección del apartamento"
-                                       data-parsley-type="digits"
-                                       data-parsley-type-message="Por favor, ingresa  Dirección del apartamento">
+                                    <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="aptoPlace" 
+                                    placeholder="ingresa el Dirección del apartamento" 
+                                    formControlName="aptoPlace" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['aptoPlace'].errors }">
+
                                     <label>Dirección del apartamento</label>
                                  </div>
                               </div>
                               <div class="col-md-4">
                                  <div
                                     class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" id="expeditionPlace" class="form-control"
-                                       name="expeditionPlace" required data-parsley-required
-                                       data-parsley-minlength="3" placeholder="Número del apartamento">
+                                    <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="numApto" 
+                                    placeholder="Número del apartamento" 
+                                    formControlName="numApto" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['numApto'].errors }">
                                     <label>Número del apartamento</label>
                                  </div>
                               </div>
                               <div class="col-md-4">
                                  <div
                                     class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" id="expeditionPlace" class="form-control"
-                                       name="expeditionPlace" required data-parsley-required
-                                       data-parsley-minlength="3" placeholder="Nombre del asesor">
+                                    <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="asesor" 
+                                    placeholder="Nombre del asesor que le atendio" 
+                                    formControlName="asesor" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['asesor'].errors }">
                                     <label>Nombre del asesor</label>
                                  </div>
                               </div>
                               <div class="col-md-4">
                                  <div
                                     class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" id="expeditionPlace" class="form-control"
-                                       name="expeditionPlace" required data-parsley-required
-                                       data-parsley-minlength="3"
-                                       placeholder="Nombre de la inmobiliaria">
+                                    <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="inmobiliaria" 
+                                    placeholder="Nombre de la inmobiliaria" 
+                                    formControlName="inmobiliaria" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['inmobiliaria'].errors }">
                                     <label>Nombre de la inmobiliaria</label>
                                  </div>
                               </div>
                               <div class="col-md-4">
                                  <div
                                     class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" id="expeditionPlace" class="form-control"
-                                       name="expeditionPlace" required data-parsley-required
-                                       data-parsley-minlength="3" placeholder="Valor del canon">
+                                    <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="canon" 
+                                    placeholder="Valor del canon" 
+                                    formControlName="canon" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['canon'].errors }">
                                     <label>Valor del canon</label>
                                  </div>
                               </div>
