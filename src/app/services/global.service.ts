@@ -17,6 +17,9 @@ import { environment } from '../../environments/environment';
 
 
 // import { Apollo, gql } from 'apollo-angular';
+
+export interface CategoryInterface {}
+
 interface ApiResponse {
   page: number;
   perPage: number;
@@ -42,6 +45,8 @@ export class GlobalService {
   // pagesArray: number[] = [];
   public urlPrev="";
   private categoriesUrl = 'http://localhost:8090/api/collections/category/records';
+  private requestUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
+
   private productsUrl = 'https://db.buckapi.com:8090/api/collections/frutmeProducts/records';
   private doctorsUrl = environment.apiUrl+'/api/collections/doctors/records';
   private specialtiesUrl = environment.apiUrl+'/api/collections/specialties/records';
@@ -51,7 +56,7 @@ export class GlobalService {
   private infoUrl = 'http://localhost8095/api/collections/info/records';
   private assetmentsUrl = 'http://localhost8095/api/collections/assetments/records';
   aside=true;
-
+  request: any;
   selectedTicketsCount=0;
 
   products: any[] = [];
@@ -253,6 +258,9 @@ select(i: any) {
   // }
   getCategories(): Observable<any> {
     return this.http.get<any>(this.categoriesUrl);
+  }
+  getRequest(): Observable<any> {
+    return this.http.get<any>(this.requestUrl);
   }
   // getDoctors(): Observable<any> {
   //   return this.http.get<any>(this.productsUrl);
