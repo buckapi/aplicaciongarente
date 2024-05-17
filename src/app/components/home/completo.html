@@ -55,14 +55,26 @@
                            conservada hasta cuando exista relación contractual o legal entre el
                            Cliente/Usuario y la entidad.
                         </p>
+                        <!-- <div class="n-summary col-2" style="text-align: initial;">
+                           <label >
+                              
+ 
+                              <input 
+                              type="checkbox" 
+                              class="form-control" 
+                              id="terminos" 
+                              placeholder="Por favor, acepte para continuar" 
+                              formControlName="terminos"
+                              required [ngClass]="{ 'is-invalid': 
+                              submitted && f['terminos'].errors }" >
+                              <span class="checkmark">Si Autorizo</span>
+                           </label>
+                        </div> -->
                         <div class="n-summary col-2" style="text-align: initial;">
                            <label>
-
-
                               <input type="checkbox" class="form-control" id="terminos"
                                  placeholder="Por favor, acepte para continuar" formControlName="terminos" required
-                                 [ngClass]="{ 'is-invalid': 
-                              submitted && f['terminos'].errors }">
+                                 [ngClass]="{ 'is-invalid': submitted && f['terminos'].errors }">
                               <span class="checkmark">Si Autorizo</span>
                            </label>
                         </div>
@@ -71,11 +83,10 @@
                      </div>
 
                      <div class="wizard-footer">
-
                         <div class="actions">
                            <ul>
-                              <li><span class="js-btn-next" title="Sig">Sig <i class="fa fa-arrow-right"></i></span>
-                              </li>
+                              <li><span class="js-btn-next" title="Sig" (click)="nextSection()">Sig <i
+                                       class="fa fa-arrow-right"></i></span></li>
                            </ul>
                         </div>
                      </div>
@@ -104,26 +115,32 @@
                                     <input type="text" class="form-control" id="email" placeholder="Correo electrónico"
                                        formControlName="email" required [ngClass]="{ 'is-invalid': 
                                        submitted && f['email'].errors }">
+
+
                                     <label>Correo electrónico</label>
                                  </div>
                               </div>
-                              <div class="col-md-8">
+                              <!-- <div class="col-md-8">
                                  <div class="n-summary">
                                     <span>¿Qué tipo de cliente eres?</span>
-
+                                    
                                     <label>
                                        <input type="radio" id="clientTypeNuevo" value="verdadero" name="clientType"
                                           formControlName="clientType" required>
                                        <span class="checkmark">Soy un cliente Nuevo</span>
                                     </label>
-                                    <label>
-                                       <input type="radio" id="clientTypeExistente" value="falso" name="clientType"
-                                          formControlName="clientType" required>
+                                    <label >
+                                       <input type="radio" id="clientTypeExistente" value="falso"
+                                          name="clientType" formControlName="clientType" required>
                                        <span class="checkmark">Soy un cliente Existente</span>
                                     </label>
                                  </div>
+                                 
+                                 <div *ngIf="submitted && f['clientType'].errors" class="invalid-feedback">
+                                    Por favor, selecciona una opción
+                                 </div>
 
-                              </div>
+                              </div> -->
 
                               <div class="wizard-content-item text-center col-md-12">
                                  <p style="text-align: center; padding-bottom: 10px;">Información
@@ -156,7 +173,7 @@
                               </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" class="form-control" id="di" placeholder="Cedula de ciudadania"
+                                    <input type="text" class="form-control" id="di" placeholder="Número de documento"
                                        formControlName="di" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['di'].errors }">
                                     <label>Número de documento</label>
@@ -182,24 +199,24 @@
                               <div class="wizard-content-item text-center col-md-12">
                                  <p>Información laboral</p>
                               </div>
-                              <!-- <div class="col-md-12 wizard-identity wizard-content-form">
+                              <div class="col-md-12 wizard-identity wizard-content-form">
                                  <h4 style="padding-bottom: 20px;">Conozcámonos mejor. Cuénteme una breve
                                     descripción de su actividad laboral o trabajo, cual es el cálculo de
                                     tus ingresos mensuales y por cuanto tiempo te dedicas a esto.</h4>
-                                    <input 
+                                 <!--  <input 
                                     type="text" 
                                     class="form-control" 
                                     id="infLabol" 
                                     placeholder="Por favor, describa su actividad laboral" 
                                     formControlName="infLabol" required [ngClass]="{ 'is-invalid': 
-                                    submitted && f['infLabol'].errors }">
+                                    submitted && f['infLabol'].errors }"> -->
 
-                              </div> -->
+                              </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
                                     <input type="text" class="form-control" id="infLabol" placeholder="En que trabaja"
                                        formControlName="infLabol" required [ngClass]="{ 'is-invalid': 
-                                 submitted && f['infLabol'].errors }">
+                                    submitted && f['infLabol'].errors }">
                                     <label>En que trabaja</label>
                                  </div>
                               </div>
@@ -207,7 +224,7 @@
                                  <div class="wizard-form-input position-relative form-group has-float-label">
                                     <input type="text" class="form-control" id="infLabolMount" placeholder="Cuanto gana"
                                        formControlName="infLabolMount" required [ngClass]="{ 'is-invalid': 
-                                 submitted && f['infLabolMount'].errors }">
+                                    submitted && f['infLabolMount'].errors }">
                                     <label>Cuanto gana</label>
                                  </div>
                               </div>
@@ -216,21 +233,20 @@
                                     <input type="text" class="form-control" id="infLabolTime"
                                        placeholder="Desde cuando se dedica a este trabajo"
                                        formControlName="infLabolTime" required [ngClass]="{ 'is-invalid': 
-                                 submitted && f['infLabolTime'].errors }">
+                                    submitted && f['infLabolTime'].errors }">
                                     <label>Desde cuando se dedica a este trabajo</label>
                                  </div>
                               </div>
                               <div class="wizard-content-item text-center col-md-12">
                                  <p style="text-align: center; padding-bottom: 10px;">Por favor,
-                                    proporcione la siguiente información para completar el registro del
-                                    arrendamiento o compra de bien inmobiliario
+                                    proporcione la siguiente información para completar el registro
                                  </p>
                               </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
                                     <input type="text" class="form-control" id="aptoPlace"
-                                       placeholder="Dirección del apartamento" formControlName="aptoPlace"
-                                       required [ngClass]="{ 'is-invalid': 
+                                       placeholder="Dirección del apartamento" formControlName="aptoPlace" required
+                                       [ngClass]="{ 'is-invalid': 
                                     submitted && f['aptoPlace'].errors }">
 
                                     <label>Dirección del apartamento</label>
@@ -247,10 +263,10 @@
                               </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" class="form-control" id="Asesor"
-                                       placeholder="Nombre del Asesor que le atendio" formControlName="Asesor" required
+                                    <input type="text" class="form-control" id="asesor"
+                                       placeholder="Nombre del asesor que le atendio" formControlName="asesor" required
                                        [ngClass]="{ 'is-invalid': 
-                                    submitted && f['Asesor'].errors }">
+                                    submitted && f['asesor'].errors }">
                                     <label>Nombre del asesor</label>
                                  </div>
                               </div>
@@ -265,7 +281,7 @@
                               </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="number" class="form-control" id="canon" placeholder="Valor del canon"
+                                    <input type="text" class="form-control" id="canon" placeholder="Valor del canon"
                                        formControlName="canon" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['canon'].errors }">
                                     <label>Valor del canon</label>
@@ -290,20 +306,24 @@
                                        Declaran igualmente, que sus conductas se ajustan a la ley y
                                        a la ética
                                     </h3>
-                                    <div class="n-summary" style="text-align: left;">
-                                       <label style="float: left;">
-                                          <input type="radio" id="clientType" value="nuevo" name="clientType" required
-                                             data-parsley-required
-                                             data-parsley-required-message="Por favor, selecciona una opción">
+                                 
+                                    <!-- <div class="n-summary" style="text-align: left;">
+                                       <label style="float: left; margin-right: 20px;">
+                                          <input type="radio" id="clientTypeNuevo" value="verdadero" name="DeclarationType"
+                                             formControlName="DeclarationType" required>
                                           <span class="checkmark">Lo juro</span>
                                        </label>
                                        <label style="float: left;">
-                                          <input type="radio" id="clientType" value="existente" name="clientType"
-                                             required data-parsley-required
-                                             data-parsley-required-message="Por favor, selecciona una opción">
+                                          <input type="radio" id="clientTypeExistente" value="falso"
+                                             name="DeclarationType" formControlName="DeclarationType" required>
                                           <span class="checkmark">No lo juro</span>
                                        </label>
                                     </div>
+
+                                    <div *ngIf="submitted && f['DeclarationType'].errors" class="invalid-feedback">
+                                       Por favor, selecciona una opción
+                                    </div> -->
+
                                  </div>
                               </div>
 
@@ -350,7 +370,6 @@
                                     <label>Nombre</label>
                                  </div>
                               </div>
-                            
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
                                     <input type="text" class="form-control" id="refEmailP1"
@@ -361,7 +380,7 @@
                               </div>
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="number" class="form-control" id="refPhoneP1"
+                                    <input type="text" class="form-control" id="refPhoneP1"
                                        placeholder="Número de teléfono" formControlName="refPhoneP1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refPhoneP1'].errors }">
                                     <label>Número de teléfono</label>
@@ -393,7 +412,7 @@
                               </div>
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="number" class="form-control" id="refPhoneP2"
+                                    <input type="text" class="form-control" id="refPhoneP2"
                                        placeholder="Número de teléfono" formControlName="refPhoneP2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refPhoneP2'].errors }">
                                     <label>Número de teléfono</label>
@@ -428,7 +447,7 @@
                               </div>
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="email" class="form-control" id="refEmailF1"
+                                    <input type="text" class="form-control" id="refEmailF1"
                                        placeholder="Correo electrónico" formControlName="refEmailF1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refEmailF1'].errors }">
                                     <label>correo electrónico</label>
@@ -436,7 +455,7 @@
                               </div>
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="number" class="form-control" id="refPhoneF1"
+                                    <input type="text" class="form-control" id="refPhoneF1"
                                        placeholder="Número de teléfono" formControlName="refPhoneF1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refPhoneF1'].errors }">
                                     <label>Número de teléfono</label>
@@ -460,7 +479,7 @@
                               </div>
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="email" class="form-control" id="refEmailF2"
+                                    <input type="text" class="form-control" id="refEmailF2"
                                        placeholder="Correo electrónico" formControlName="refEmailF2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refEmailF2'].errors }">
                                     <label>correo electrónico</label>
@@ -468,7 +487,7 @@
                               </div>
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="number" class="form-control" id="refPhoneF2"
+                                    <input type="text" class="form-control" id="refPhoneF2"
                                        placeholder="Número de teléfono" formControlName="refPhoneF2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refPhoneF2'].errors }">
                                     <label>Número de teléfono</label>
@@ -487,7 +506,7 @@
                      </div>
                      <div class="wizard-footer" style="min-height: 350px;">
                         <div class="wizard-imgbg">
-                           <img src="assets/form/img/v3.png" alt="">
+                           <img src="assets/img/v3.png" alt="">
                         </div>
                         <div class="actions">
                            <ul>
@@ -538,18 +557,18 @@
                            </div>
                         </div>
                         <div class="wizard-content-item text-center col-md-12">
-                           <p style="text-align: center; padding-bottom: 10px;">Información de pago
+                           <p style="text-align: center; padding-bottom: 10px;">Adjunte por favor su documento de
+                              identidad
                            </p>
                         </div>
                         <div class="wizard-identity wizard-content-form">
                            <div class="row">
-                              <p>Adjunta comprobante pago de estudio de la aplicación, valor 75.000 cop
+                              <!-- <p>Adjunta comprobante pago de estudio de la aplicación, valor 75.000 cop
                                  debe ser consignados en la cuenta de ahorros Bancolombia 245-000055-24 a
                                  nombre de REALTY & LEGAL INDUSTRY S.A.S, también lo puedes hacer por
                                  medio de nuestro botón de pagos o la dirección de PayPal
                                  realtylegalindustry&#64;gmail.com</p>
-                              <span>Nota: Botón de pagos y PayPal tiene cargos adicionales del 3%
-                                 aproximadamente.</span>
+                                 <span>Nota: Botón de pagos y PayPal tiene cargos adicionales del 3% aproximadamente.</span> -->
                               <div class="col-md-12">
                                  <!-- <div class="wizard-identity-box identity-upload text-center">
                                     <div class="upload-icon">

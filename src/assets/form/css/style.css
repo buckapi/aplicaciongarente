@@ -1026,8 +1026,8 @@ select.form-control option[value=""][disabled] {
   height: 80px;
   border: none;
   overflow: visible;
-  padding-left: 40px;
-  border-radius: 3px;
+/*   padding-left: 40px;
+ */  border-radius: 3px;
   margin-bottom: 28px;
   -webkit-transition: 0.3s all ease-out;
   -o-transition: 0.3s all ease-out;
@@ -1293,7 +1293,7 @@ select.form-control option[value=""][disabled] {
 
 .n-summary {
   height: 80px;
-  padding-left: 30px;
+ /*  padding-left: 30px; */
   line-height: 37px;
 /*  background-color: #ddeef9;*/
 }

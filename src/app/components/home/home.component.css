@@ -1,0 +1,14 @@
+
+    @media (max-width: 600px) {
+        .actions ul {
+            /* Ajustes específicos para móviles */
+            padding: 10px;
+            margin: 0 auto;
+            text-align: center;
+            display: block;
+        }
+        .actions li {
+            margin: 10px 10px;
+        }
+        
+    }
