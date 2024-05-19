@@ -8,9 +8,8 @@ import {
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { FilePickerAdapter } from "ngx-awesome-uploader";
-import { Butler } from "@app/services/butler.service";
-import { GlobalService } from "@app/services/global.service";
-
+import { Butler } from "../services/butler.service";
+import { GlobalService } from "../services/global.service"; 
 export class CustomFilePickerAdapter extends FilePickerAdapter {
   private uploadUrl =
     "https://db.buckapi.com:8090/api/collections/svbImages/records";
