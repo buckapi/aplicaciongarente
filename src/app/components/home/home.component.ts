@@ -104,39 +104,56 @@ export class HomeComponent implements OnInit {
   
   saveRequest() {
     this.submitted = true; 
-     let data: any = this.ngFormRequest.value;
-    data.images=this._butler.uploaderImages;
-    this._butler.uploaderImages=[];
+  
+    // Verifica si el formulario es válido antes de enviarlo
+    if (this.ngFormRequest.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Por favor, complete todos los campos requeridos antes de enviar la solicitud.'
+      });
+      return;
+    }
+  
+    let data: any = this.ngFormRequest.value;
+    data.images = this._butler.uploaderImages;
+    this._butler.uploaderImages = [];
+    
     this.dataApiService.saveRequest(data).subscribe(
       (response) => {
         Swal.fire({
           icon: 'success',
           title: 'Éxito',
           text: 'Solicitud guardada correctamente.'
+        }).then(() => {
+          // Limpiar los valores para futuros usos
+          this.global.request = '';
+          this.yeoman.allrequest.push(response);
+          this.yeoman.allrequest = [...this.yeoman.allrequest];
+          this.isError = false;
+          
+          // Reiniciar el formulario
+          this.ngFormRequest.reset();
+          this.submitted = false;  // Resetear el estado de envío
+  
+          // Recargar la página
+          window.location.reload();
         });
+  
         console.log('Solicitud guardada correctamente:', response);
-        
-        // Limpiar los valores para futuros usos
-        this.global.request = '';
-        this.yeoman.allrequest.push(response);
-        this.yeoman.allrequest = [...this.yeoman.allrequest];
-        this.isError = false;
       },
       (error) => {
         this.onIsError();
         Swal.fire({
-          icon: 'success',
-          title: 'Éxito',
-          text: 'Solicitud guardada correctamente.'
-        }).then(() => {
-          this.ngFormRequest.reset(); // Reiniciar el formulario
-        
-          
+          icon: 'error',
+          title: 'Error',
+          text: 'Ocurrió un error al guardar la solicitud. Por favor, inténtelo de nuevo más tarde.'
         });
-        console.log('Solicitud guardada correctamente:', Response);
+        console.log('Error al guardar la solicitud:', error);
       }
     );
-  } 
+  }
+  
   onFileChange(event: any) {
     const reader = new FileReader();
     const file = event.target.files[0];
