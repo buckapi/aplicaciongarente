@@ -44,17 +44,17 @@ interface ApiResponse {
 export class GlobalService {
   // pagesArray: number[] = [];
   public urlPrev="";
-  private categoriesUrl = 'http://localhost:8090/api/collections/category/records';
-  private requestUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
+/*   private categoriesUrl = 'http://localhost:8090/api/collections/category/records';
+ */  private requestUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
 
-  private productsUrl = 'https://db.buckapi.com:8090/api/collections/frutmeProducts/records';
+  /* private productsUrl = 'https://db.buckapi.com:8090/api/collections/frutmeProducts/records';
   private doctorsUrl = environment.apiUrl+'/api/collections/doctors/records';
   private specialtiesUrl = environment.apiUrl+'/api/collections/specialties/records';
 
   private toursUrl = 'http://localhost8070/api/collections/tours/records';
 
   private infoUrl = 'http://localhost8095/api/collections/info/records';
-  private assetmentsUrl = 'http://localhost8095/api/collections/assetments/records';
+  private assetmentsUrl = 'http://localhost8095/api/collections/assetments/records'; */
   aside=true;
   request: any;
   selectedTicketsCount=0;
@@ -95,10 +95,10 @@ export class GlobalService {
     specialtySelected:string='';
     filtered=false;
   mySelection: { [key: number]: boolean }= {};
-  assetments: any[] = [];  
-  info: any[] = [];  
-  categories: any[] = [];
-
+/*   assetments: any[] = [];  
+ */  info: any[] = [];  
+/*   categories: any[] = [];
+ */
   tours: any[] = [];
   currentPage: number = 1;
   totalProducts: number = 0; // Total de productos que tu API puede devolver
@@ -138,7 +138,7 @@ view:any=true;
 //     }
 // );
     
-this.getDoctors().subscribe(
+/* this.getDoctors().subscribe(
   response=>{
     this.doctors=response;
   }
@@ -147,10 +147,10 @@ this.getSpecialties().subscribe(
   response => {
     this.specialties = response;
   }
-);
+); */
    }
  
-   getDoctors(): Observable<any[]> {
+ /*   getDoctors(): Observable<any[]> {
     this.urlPrev = this.doctorsUrl;
     return this.getAllPages(this.urlPrev).pipe(
       tap(doctors => {
@@ -182,7 +182,7 @@ this.getSpecialties().subscribe(
       })
     );
   }
-  
+   */
   private getAllPages(url: string, doctors: any[] = []): Observable<any[]> {
     return this.http.get<any>(url).pipe(
       switchMap((response: any) => {
@@ -256,16 +256,16 @@ select(i: any) {
   // get totalPages(): number {
   //   return Math.ceil(this.totalProducts / 20);
   // }
-  getCategories(): Observable<any> {
+ /*  getCategories(): Observable<any> {
     return this.http.get<any>(this.categoriesUrl);
-  }
+  } */
   getRequest(): Observable<any> {
     return this.http.get<any>(this.requestUrl);
   }
   // getDoctors(): Observable<any> {
   //   return this.http.get<any>(this.productsUrl);
   // }
-  getTours(): Observable<any> {
+  /* getTours(): Observable<any> {
     return this.http.get<any>(this.toursUrl);
   }
   getInffo(): Observable<any> {
@@ -273,7 +273,7 @@ select(i: any) {
   }
   getAssetments(): Observable<any> {
     return this.http.get<any>(this.assetmentsUrl);
-  }
+  } */
   get pagesArray(): number[] {
     const totalPages = Math.ceil(this.totalProducts / this.itemsPerPage);
     return new Array(totalPages).fill(0).map((_, index) => index + 1);

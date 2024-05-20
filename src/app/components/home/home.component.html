@@ -111,20 +111,21 @@
                                  </div>
                               </div>
                               <div class="col-md-8">
-                                 <div class="n-summary">
-                                    <span>¿Qué tipo de cliente eres?</span>
-                                    <label>
-                                      <input type="radio" id="clientTypeNuevo" value="nuevo" formControlName="clientType" required>
-                                      <span class="checkmark">Soy un cliente Nuevo</span>
-                                    </label>
-                                    <label>
-                                      <input type="radio" id="clientTypeExistente" value="existente" formControlName="clientType" required>
-                                      <span class="checkmark">Soy un cliente Existente</span>
-                                    </label>
-                                    <div *ngIf="submitted && f['clientType'].errors" class="invalid-feedback" style="clear: both;">
-                                      <div *ngIf="f['clientType'].errors['required']">Por favor, selecciona una opción.</div>
-                                    </div>
-                                  </div>
+                                <div class="n-summary">
+                                 <span>¿Qué tipo de cliente eres?</span>
+                                 <label style="float: left;">
+                                   <input type="radio" id="clientTypeNuevo" value="nuevo" formControlName="clientType">
+                                   <span class="checkmark">Soy un cliente Nuevo</span>
+                                 </label>
+                                 <label style="float: left;">
+                                   <input type="radio" id="clientTypeExistente" value="existente" formControlName="clientType">
+                                   <span class="checkmark">Soy un cliente Existente</span>
+                                 </label>
+                                 <div *ngIf="submitted && f['clientType'].errors" class="invalid-feedback" style="clear: both;">
+                                   <div *ngIf="f['clientType'].errors['required']">Por favor, selecciona una opción.</div>
+                                 </div>
+                               </div>
+                                
                               </div>
 
                               <div class="wizard-content-item text-center col-md-12">
@@ -313,15 +314,15 @@
                                     </h3>
                                      <div class="n-summary" style="text-align: left;">
                                        <label style="float: left;">
-                                         <input type="radio" id="declarationTypeYes" value="si" formControlName="DeclarationType">
+                                         <input type="radio" id="declarationTypeYes" value="si" formControlName="declarationType">
                                          <span class="checkmark">Lo juro</span>
                                        </label>
                                        <label style="float: left;">
-                                         <input type="radio" id="declarationTypeNo" value="no" formControlName="DeclarationType">
+                                         <input type="radio" id="declarationTypeNo" value="no" formControlName="declarationType">
                                          <span class="checkmark">No lo juro</span>
                                        </label>
-                                       <div *ngIf="submitted && f['DeclarationType'].errors" class="invalid-feedback" style="clear: both;">
-                                         <div *ngIf="f['DeclarationType'].errors['required']">Por favor, selecciona una opción.</div>
+                                       <div *ngIf="submitted && f['declarationType'].errors" class="invalid-feedback" style="clear: both;">
+                                         <div *ngIf="f['declarationType'].errors['required']">Por favor, selecciona una opción.</div>
                                        </div>
                                      </div>
                                      
@@ -330,9 +331,7 @@
 
                            </div>
                            <div class="wizard-footer" style="min-height: 350px;">
-                              <div class="wizard-imgbg">
-                                 <img src="assets/img/v3.png" alt="">
-                              </div>
+                             
                               <div class="actions">
                                  <ul>
                                    <li>
@@ -554,34 +553,29 @@
                               <p style="padding-bottom: 20px;">El suministro de información falsa en la
                                  presente solicitud incurre en el delito de falsedad en documento privado
                                  de acuerdo con los artículos 289 y 290 del C.P.C.</p>
-                              <div class="n-summary" style="text-align: left;">
-                                 <label style="float: left;">
-                                    <input type="radio" id="declarationType2Yes" value="si" name="DeclarationType2" required
-                                       data-parsley-required
-                                       data-parsley-required-message="Por favor, selecciona una opción">
-                                    <span class="checkmark">Mi información es real</span>
-                                 </label>
-                                 <label style="float: left;">
-                                    <input type="radio" id="declarationType2No" value="no" name="DeclarationType2" required
-                                       data-parsley-required
-                                       data-parsley-required-message="Por favor, selecciona una opción">
-                                    <span class="checkmark">No, mi información no es real</span>
-                                 </label>
-                                 <div *ngIf="submitted && f['DeclarationType2'].errors" class="invalid-feedback" style="clear: both;">
-                                    <div *ngIf="f['DeclarationType2'].errors['required']">Por favor, selecciona una opción.</div>
-                                  </div>
-                              </div>
+                                 <div class="n-summary" style="text-align: left;">
+                                    <label style="float: left;">
+                                        <input type="radio" id="informationTypeYes" value="si" formControlName="informationType">
+                                        <span class="checkmark">Mi información es real</span>
+                                    </label>
+                                    <label style="float: left;">
+                                        <input type="radio" id="informationTypeNo" value="no" formControlName="informationType">
+                                        <span class="checkmark">No, mi información no es real</span>
+                                    </label>
+                                    <div *ngIf="submitted && f['informationType'].errors" class="invalid-feedback" style="clear: both;">
+                                        <div *ngIf="f['informationType'].errors['required']">Por favor, selecciona una opción.</div>
+                                    </div>
+                                </div>
+                                
                            </div>
                         </div>
                         <div class="wizard-content-item text-center col-md-12">
-                           <p style="text-align: center; padding-bottom: 10px;">Información de pago
+                           <p style="text-align: center; padding-bottom: 10px;">Información de verificación
                            </p>
                         </div>
-                        <div class="wizard-identity wizard-content-form">
+                        <div class="">
                            <div class="row">
-                              
-                              <div class="col-md-12">
-                                 <div class="upload-documents">
+                                 <div class="col-md-12">
                                     <h3>Cargue su documento de identidad:</h3>
                                     <ngx-awesome-uploader 
                                       [adapter]="adapter" 
@@ -589,15 +583,12 @@
                                       [showPreviewContainer]="false">
                                     </ngx-awesome-uploader>
                                   </div>
-                              </div>
                            </div>
                         </div>
                      </div>
 
                      <div class="wizard-footer" style="min-height: 350px;">
-                        <div class="wizard-imgbg">
-                           <img src="assets/img/v3.png" alt="">
-                        </div>
+                        
                         <div class="actions">
                            <ul>
                              <li><span class="js-btn-prev" title="Atras"><i class="fa fa-arrow-left"></i> Atras</span></li>

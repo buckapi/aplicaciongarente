@@ -12,7 +12,7 @@ import { FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { virtualRouter } from '../../services/virtualRouter.service';
 import { Butler } from '../../services/butler.service';
-import { UploaderCaptions } from 'ngx-awesome-uploader';
+import { FilePickerModule, UploaderCaptions } from 'ngx-awesome-uploader';
 import { CustomFilePickerAdapter } from '../file-piker.adapter';
 import { HttpClient } from '@angular/common/http';
 
@@ -20,7 +20,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,FilePickerModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],  // Agregar CUSTOM_ELEMENTS_SCHEMA aquí
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -61,8 +61,8 @@ export class HomeComponent {
       terminos: [false, Validators.requiredTrue],
       email: ['', [Validators.required, Validators.email]],
       clientType: ['', Validators.required],  // Agregar el validador requerido
-      DeclarationType: ['', Validators.required],  // Agregar el validador requerido
-      DeclarationType2: ['', Validators.required],  // Agregar el validador requerido
+      declarationType: ['', Validators.required],  // Agregar el validador requerido
+      informationType: ['', Validators.required],  // Agregar el validador requerido
       name: ['', Validators.required],
       identityType: ['', Validators.required],
       di: ['', Validators.required],
@@ -110,7 +110,8 @@ export class HomeComponent {
 
     // Si el formulario es válido, continuar con la lógica de guardado
     let data: any = this.ngFormRequest.value;
-
+    data.images=this._butler.uploaderImages;
+    this._butler.uploaderImages=[];
     this.dataApiService.saveRequest(data).subscribe(
       (response) => {
         Swal.fire({
@@ -129,10 +130,13 @@ export class HomeComponent {
       (error) => {
         this.onIsError();
         Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Hubo un problema al guardar la solicitud. Inténtelo de nuevo.'
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Solicitud guardada correctamente.'
+        }).then(() => {
+          window.location.reload();
         });
+        console.log('Solicitud guardada correctamente:', Response);
       }
     );
   }
@@ -143,8 +147,8 @@ export class HomeComponent {
       terminos: [false, Validators.requiredTrue],
       email: ['', [Validators.required, Validators.email]],
       clientType: ['', Validators.required],
-      DeclarationType: ['', Validators.required],  // Agregar el validador requerido
-      DeclarationType2: ['', Validators.required],  // Agregar el validador requerido
+      declarationType: ['', Validators.required],  // Agregar el validador requerido
+      informationType: ['', Validators.required],  // Agregar el validador requerido
       name: ['', Validators.required],
       identityType: ['', Validators.required],
       di: ['', Validators.required],

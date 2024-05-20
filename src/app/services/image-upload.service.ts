@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ImageUploadService {
 
-  private apiUrl = 'https://db.buckapi.com:8090/api/collections/svbImages/records';
+  private apiUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
 
   constructor(private http: HttpClient) { }
 
