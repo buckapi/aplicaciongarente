@@ -16,20 +16,20 @@ import { FilePickerModule, UploaderCaptions } from 'ngx-awesome-uploader';
 import { CustomFilePickerAdapter } from '../file-piker.adapter';
 import { HttpClient } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule,FilePickerModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],  // Agregar CUSTOM_ELEMENTS_SCHEMA aquí
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   ngFormRequest: FormGroup;
   submitted = false;
   public isError = false;
-  adapter = new CustomFilePickerAdapter(this.http,this._butler,this.global);
+  uploadedImage: string | ArrayBuffer | null = null;
+  adapter = new CustomFilePickerAdapter(this.http, this._butler, this.global);
   imgResult: string = '';
   imgResultAfterCompression: string = '';
   imgResultBeforeCompression: string = '';
@@ -48,6 +48,7 @@ export class HomeComponent {
       uploadError: 'error',
     },
   };
+
   constructor(
     public global: GlobalService,
     public yeoman: Yeoman,
@@ -60,9 +61,9 @@ export class HomeComponent {
     this.ngFormRequest = this.formBuilder.group({
       terminos: [false, Validators.requiredTrue],
       email: ['', [Validators.required, Validators.email]],
-      clientType: ['', Validators.required],  // Agregar el validador requerido
-      declarationType: ['', Validators.required],  // Agregar el validador requerido
-      informationType: ['', Validators.required],  // Agregar el validador requerido
+      clienType: ['', Validators.required],
+      declarationType: ['', Validators.required],
+      informationType: ['', Validators.required],
       name: ['', Validators.required],
       identityType: ['', Validators.required],
       di: ['', Validators.required],
@@ -92,24 +93,18 @@ export class HomeComponent {
       refEmailF2: ['', [Validators.required, Validators.email]],
       refPhoneF2: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       refCityF2: ['', Validators.required],
-      images: ['', Validators.required] as string[],
+      identityDocument: ['', Validators.required],
     });
   }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.ngFormRequest.controls;
+  }
+
+  
   saveRequest() {
-    this.submitted = true;  // Indicamos que el formulario ha sido enviado
-
-    // Verificar si el formulario es válido
-   /*  if (this.ngFormRequest.invalid) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Por favor, complete todos los campos requeridos.'
-      });
-      return;  // Detener la ejecución si el formulario es inválido
-    } */
-
-    // Si el formulario es válido, continuar con la lógica de guardado
-    let data: any = this.ngFormRequest.value;
+    this.submitted = true; 
+     let data: any = this.ngFormRequest.value;
     data.images=this._butler.uploaderImages;
     this._butler.uploaderImages=[];
     this.dataApiService.saveRequest(data).subscribe(
@@ -134,21 +129,50 @@ export class HomeComponent {
           title: 'Éxito',
           text: 'Solicitud guardada correctamente.'
         }).then(() => {
-          window.location.reload();
+          this.ngFormRequest.reset(); // Reiniciar el formulario
+        
+          
         });
         console.log('Solicitud guardada correctamente:', Response);
       }
     );
+  } 
+  onFileChange(event: any) {
+    const reader = new FileReader();
+    const file = event.target.files[0];
+
+    if (file) {
+      reader.onload = () => {
+        this.uploadedImage = reader.result;
+      };
+      reader.readAsDataURL(file);
+      this.ngFormRequest.patchValue({
+        identityDocument: file
+      });
+    }
   }
+  onNext() {
+    this.submitted = true;
 
+    if (this.ngFormRequest.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Por favor, complete todos los campos requeridos antes de continuar.',
+      });
+      return; // Detener la ejecución si el formulario es inválido
+    }
 
+    console.log('Formulario válido, continuar a la siguiente sección');
+  }
+ 
   ngOnInit(): void {
     this.ngFormRequest = this.formBuilder.group({
       terminos: [false, Validators.requiredTrue],
       email: ['', [Validators.required, Validators.email]],
-      clientType: ['', Validators.required],
-      declarationType: ['', Validators.required],  // Agregar el validador requerido
-      informationType: ['', Validators.required],  // Agregar el validador requerido
+      clienType: ['', Validators.required],
+      declarationType: ['', Validators.required],
+      informationType: ['', Validators.required],
       name: ['', Validators.required],
       identityType: ['', Validators.required],
       di: ['', Validators.required],
@@ -178,33 +202,13 @@ export class HomeComponent {
       refEmailF2: ['', [Validators.required, Validators.email]],
       refPhoneF2: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       refCityF2: ['', Validators.required],
-      images: ['', Validators.required] as string[],
-
+      identityDocument: ['', Validators.required],
     });
   }
-  get f(): { [key: string]: AbstractControl } {
-    return this.ngFormRequest.controls;
-  }
-  onNext() {
-    this.submitted = true;  // Indicamos que el formulario ha sido enviado
 
-    // Verificar si el formulario es válido
-    if (this.ngFormRequest.invalid) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Por favor, complete todos los campos requeridos antes de continuar.'
-      });
-      return;  // Detener la ejecución si el formulario es inválido
-    }
-
-    // Aquí puedes poner la lógica para ir a la siguiente sección del formulario
-    // Por ejemplo, cambiar el panel del formulario
-    console.log('Formulario válido, continuar a la siguiente sección');
-  }
   onIsError(): void {
-        this.isError = true;
-       /*  setTimeout(() => {
+    this.isError = true;
+    /* setTimeout(() => {
       this.isError = false;
     }, 4000); */
   }

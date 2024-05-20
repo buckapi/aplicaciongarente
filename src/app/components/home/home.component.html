@@ -20,72 +20,75 @@
       <div class="row">
          <div class="col-12 col-lg-12 m-auto">
             <!-- <form class="multisteps-form__form clearfix" action="index.html#" method="post" id="wizard"> -->
-            <form class="multisteps-form__form clearfix"  method="post" id="wizard"
-               [formGroup]="ngFormRequest" (ngSubmit)="saveRequest()">
+            <form class="multisteps-form__form clearfix" [formGroup]="ngFormRequest" (ngSubmit)="saveRequest()">
 
                <!--single form panel-->
                <div class="multisteps-form__panel js-active" data-animation="slideVert">
                   <div class="inner pb-100">
-                     <div class="wizard-topper">
-                        <div class="wizard-progress">
-                           <span>1 of 6 Completedo</span>
-                           <div class="progress">
-                              <div class="progress-bar">
-                              </div>
-                           </div>
+                    <div class="wizard-topper">
+                      <div class="wizard-progress">
+                        <span>1 de 4 Completado</span>
+                        <div class="progress">
+                          <div class="progress-bar"></div>
                         </div>
-                     </div>
-                     <div class="wizard-content-item text-justify">
-                        <h2 style="text-align: center;">AUTORIZACIÓN TRATAMIENTO DE DATOS PERSONALES Y
-                           CENTRALES DE INFORMACIÓN</h2>
-                        <p> Declaro que para efectos de acceder a la prestación de servicios por parte de
-                           REALTY & LEGAL INDUSTRY S.A.S, el suscrito ha suministrado datos personales y
-                           este como responsable en cumplimiento de las disposiciones de la Ley 1581 de
-                           2012 y demás normas vigentes, le informa que los datos personales que se recojan
-                           y conserven en nuestras bases de datos con motivo aplicación servicio de
-                           garante, serán utilizados para los fines dispuestos en este contrato como son:
-                           el cumplimiento de las obligaciones contractuales, legales y evaluación de los
-                           servicios prestados, informar sobre interrupciones y/o suspensiones de los
-                           mismos servicios contratados, entre otras finalidades necesariamente conexas con
-                           la prestación del servicio de publicidad. REALTY & LEGAL INDUSTRY S.A.S, como
-                           entidad socialmente responsable, informa que sus datos serán tratados de manera
-                           segura y confidencial, y que le asisten los derechos de conocerlos,
-                           actualizarlos y rectificarlos, acorde con la norma de protección de datos
-                           personales y la política adoptada por ella, y que esta información será
-                           conservada hasta cuando exista relación contractual o legal entre el
-                           Cliente/Usuario y la entidad.
-                        </p>
-                        <div class="n-summary col-2" style="text-align: initial;">
-                           <label>
-                             <input type="checkbox" class="form-control" id="terminos" placeholder="Por favor, acepte para continuar" formControlName="terminos" [ngClass]="{ 'is-invalid': submitted && f['terminos'].errors }">
-                             <span class="checkmark">Si Autorizo</span>
-                           </label>
-                           <div *ngIf="submitted && f['terminos'].errors" class="invalid-feedback">
-                             Debes aceptar los términos y condiciones.
-                           </div>
+                      </div>
+                    </div>
+                    <div class="wizard-content-item text-justify">
+                      <h2 style="text-align: center;">
+                        AUTORIZACIÓN TRATAMIENTO DE DATOS PERSONALES Y
+                        CENTRALES DE INFORMACIÓN
+                      </h2>
+                      <p>
+                        Declaro que para efectos de acceder a la prestación de servicios por
+                        parte de REALTY & LEGAL INDUSTRY S.A.S, el suscrito ha suministrado
+                        datos personales y este como responsable en cumplimiento de las
+                        disposiciones de la Ley 1581 de 2012 y demás normas vigentes, le
+                        informa que los datos personales que se recojan y conserven en
+                        nuestras bases de datos con motivo aplicación servicio de garante,
+                        serán utilizados para los fines dispuestos en este contrato como son:
+                        el cumplimiento de las obligaciones contractuales, legales y
+                        evaluación de los servicios prestados, informar sobre interrupciones
+                        y/o suspensiones de los mismos servicios contratados, entre otras
+                        finalidades necesariamente conexas con la prestación del servicio de
+                        publicidad. REALTY & LEGAL INDUSTRY S.A.S, como entidad socialmente
+                        responsable, informa que sus datos serán tratados de manera segura y
+                        confidencial, y que le asisten los derechos de conocerlos,
+                        actualizarlos y rectificarlos, acorde con la norma de protección de
+                        datos personales y la política adoptada por ella, y que esta
+                        información será conservada hasta cuando exista relación contractual
+                        o legal entre el Cliente/Usuario y la entidad.
+                      </p>
+                      <div class="n-summary col-2" style="text-align: initial;">
+                        <label>
+                          <input type="checkbox" class="form-control" id="terminos" placeholder="Por favor, acepte para continuar" 
+                          formControlName="terminos" [ngClass]="{ 'is-invalid': submitted && f['terminos'].errors }">
+                          <span class="checkmark">Si Autorizo</span>
+                        </label>
+                        <div *ngIf="submitted && f['terminos'].errors" class="invalid-feedback" style="clear: both;">
+                           <div *ngIf="f['terminos'].errors['required']">Por favor, acepte para continuar.</div>
                          </div>
-                        <p>¿Tienes dudas?</p> Hablemos via correo: <a
-                           href="mailto:hello&#64;legales.com.co">hello&#64;legales.com.co </a>
-                     </div>
-                     <div class="wizard-footer">
-                        <div class="actions">
-                           <ul>
-                             <li>
-                               <span  class="js-btn-next" title="Sig">
-                                 Sig <i class="fa fa-arrow-right"></i>
-<!--                                  (click)="onNext()"
- -->                               </span>
-                             </li>
-                           </ul>
-                         </div>
-                     </div>
+                      </div>
+                      <p>¿Tienes dudas? Hablemos via correo: <a href="mailto:hello&#64;legales.com.co">hello&#64;legales.com.co</a></p>
+                    </div>
+                    <div class="wizard-footer">
+                      <div class="actions">
+                        <ul>
+                          <li>
+                            <span class="js-btn-next" title="Sig" >
+                              Sig <i class="fa fa-arrow-right"></i>
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-               </div>
+                </div>
+                
                <div class="multisteps-form__panel " data-animation="slideVert">
                   <div class="inner pb-100">
                      <div class="wizard-topper">
                         <div class="wizard-progress">
-                           <span>2 of 6 Completedo</span>
+                           <span>2 de 4 Completado</span>
                            <div class="progress">
                               <div class="progress-bar">
                               </div>
@@ -99,6 +102,29 @@
                      <div class="wizard-content-form">
                         <div class="wizard-form-field">
                            <div class="row">
+                              <div class="col-md-8">
+                                 <div class="n-summary">
+                                   <span>¿Qué tipo de cliente eres?</span>
+                                   <label style="float: left;">
+                                     <input type="radio" id="clienTypeNuevo" value="nuevo" formControlName="clienType" [ngClass]="{ 'is-invalid': submitted && f['clienType'].errors }">
+                                     <span class="checkmark">Soy un cliente Nuevo</span>
+                                   </label>
+                                   <label style="float: left;">
+                                     <input type="radio" id="clienTypeExistente" value="existente" formControlName="clienType" [ngClass]="{ 'is-invalid': submitted && f['clienType'].errors }">
+                                     <span class="checkmark">Soy un cliente Existente</span>
+                                   </label>
+                                   <div *ngIf="submitted && f['clienType'].errors" class="invalid-feedback" style="clear: both;">
+                                     <div *ngIf="f['clienType'].errors['required']">Por favor, selecciona una opción.</div>
+                                   </div>
+                                 </div>
+                               </div>
+                               
+                               
+                              <div class="wizard-content-item text-center col-md-12">
+                                 <p style="text-align: center; padding-bottom: 10px;">Información
+                                    personal
+                                 </p>
+                              </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
                                     <input type="text" class="form-control" id="email" placeholder="Correo electrónico"
@@ -109,29 +135,6 @@
                                        <div *ngIf="f['email'].errors['required']">El correo es obligatorio.</div>
                                      </div>
                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                <div class="n-summary">
-                                 <span>¿Qué tipo de cliente eres?</span>
-                                 <label style="float: left;">
-                                   <input type="radio" id="clientTypeNuevo" value="nuevo" formControlName="clientType">
-                                   <span class="checkmark">Soy un cliente Nuevo</span>
-                                 </label>
-                                 <label style="float: left;">
-                                   <input type="radio" id="clientTypeExistente" value="existente" formControlName="clientType">
-                                   <span class="checkmark">Soy un cliente Existente</span>
-                                 </label>
-                                 <div *ngIf="submitted && f['clientType'].errors" class="invalid-feedback" style="clear: both;">
-                                   <div *ngIf="f['clientType'].errors['required']">Por favor, selecciona una opción.</div>
-                                 </div>
-                               </div>
-                                
-                              </div>
-
-                              <div class="wizard-content-item text-center col-md-12">
-                                 <p style="text-align: center; padding-bottom: 10px;">Información
-                                    personal
-                                 </p>
                               </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
@@ -144,7 +147,7 @@
                                </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label mt-0 n-select-option">
-                                    <select id="identityType" name="identityType" class="form-control" formControlName="identityType" required>
+                                    <select id="identityType" name="identityType" class="form-control" formControlName="identityType" required [ngClass]="{ 'is-invalid': submitted && f['identityType'].errors }">
                                       <option value="">Seleccione el tipo de documento</option>
                                       <option value="Cedula de ciudadania">Cédula de ciudadanía</option>
                                       <option value="Cedula extranjera">Cédula de extranjería</option>
@@ -178,7 +181,7 @@
                                      </div>
                                  </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
                                     <input type="number" class="form-control" id="numWhat"
                                        placeholder="Numero de celular WhatsApp" formControlName="numWhat" required
@@ -314,11 +317,11 @@
                                     </h3>
                                      <div class="n-summary" style="text-align: left;">
                                        <label style="float: left;">
-                                         <input type="radio" id="declarationTypeYes" value="si" formControlName="declarationType">
+                                         <input type="radio" id="declarationTypeYes" value="si" formControlName="declarationType" required [ngClass]="{ 'is-invalid': submitted && f['declarationType'].errors }">
                                          <span class="checkmark">Lo juro</span>
                                        </label>
                                        <label style="float: left;">
-                                         <input type="radio" id="declarationTypeNo" value="no" formControlName="declarationType">
+                                         <input type="radio" id="declarationTypeNo" value="no" formControlName="declarationType" required [ngClass]="{ 'is-invalid': submitted && f['declarationType'].errors }">
                                          <span class="checkmark">No lo juro</span>
                                        </label>
                                        <div *ngIf="submitted && f['declarationType'].errors" class="invalid-feedback" style="clear: both;">
@@ -355,15 +358,15 @@
                   <div class="inner pb-100">
                      <div class="wizard-topper">
                         <div class="wizard-progress">
-                           <span>3 of 6 Completedo</span>
+                           <span>3 de 4 completado</span>
                            <div class="progress">
                               <div class="progress-bar" style="width: 65%;"></div>
                            </div>
                         </div>
                      </div>
                      <div class="wizard-content-item text-center">
-                        <h2>Referencias familiares</h2>
-                        <p>Ingrese 2 referencias familiar</p>
+                        <h2>Referencias personales</h2>
+                        <p>Ingrese 2 referencias personales</p>
                      </div>
                      <div class="wizard-content-form">
                         <div class="wizard-form-field">
@@ -374,15 +377,20 @@
                                        formControlName="refNameP1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refNameP1'].errors }">
                                     <label>Nombre</label>
+                                    <div *ngIf="submitted && f['refNameP1'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refNameP1'].errors['required']">Nombre completo obligatoria.</div>
+                                     </div>
                                  </div>
                               </div>
-                            
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
                                     <input type="text" class="form-control" id="refEmailP1"
                                        placeholder="Correo electrónico" formControlName="refEmailP1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refEmailP1'].errors }">
                                     <label>correo electrónico</label>
+                                    <div *ngIf="submitted && f['refEmailP1'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refEmailP1'].errors['required']">Correo electrónico obligatorio.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -391,6 +399,9 @@
                                        placeholder="Número de teléfono" formControlName="refPhoneP1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refPhoneP1'].errors }">
                                     <label>Número de teléfono</label>
+                                    <div *ngIf="submitted && f['refPhoneP1'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refPhoneP1'].errors['required']">Numero de telémofono obligatorio.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -399,6 +410,9 @@
                                        formControlName="refCityP1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refCityP1'].errors }">
                                     <label>Ciudad</label>
+                                    <div *ngIf="submitted && f['refCityP1'].errors" class="invalid-feedback">  
+                                       <div *ngIf="f['refCityP1'].errors['required']">Ciudad obligatoria.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -407,6 +421,9 @@
                                        formControlName="refNameP2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refNameP2'].errors }">
                                     <label>Nombre</label>
+                                    <div *ngIf="submitted && f['refNameP2'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refNameP2'].errors['required']">Nombre completo obligatoria.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -415,6 +432,9 @@
                                        placeholder="Correo electrónico" formControlName="refEmailP2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refEmailP2'].errors }">
                                     <label>correo electrónico</label>
+                                    <div *ngIf="submitted && f['refEmailP2'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refEmailP2'].errors['required']">Correo electrónico obligatorio.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -423,6 +443,9 @@
                                        placeholder="Número de teléfono" formControlName="refPhoneP2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refPhoneP2'].errors }">
                                     <label>Número de teléfono</label>
+                                    <div *ngIf="submitted && f['refPhoneP2'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refPhoneP2'].errors['required']">Numero de telémofono obligatorio.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -431,15 +454,18 @@
                                        formControlName="refCityP2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refCityP2'].errors }">
                                     <label>Ciudad</label>
+                                    <div *ngIf="submitted && f['refCityP2'].errors" class="invalid-feedback">  
+                                       <div *ngIf="f['refCityP2'].errors['required']">Ciudad obligatoria.</div>                                 
+                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
 
-                     <div class="wizard-content-item text-center">
-                        <h2>Referencias personales</h2>
-                        <p>Ingrese 2 referencias personales</p>
+                     <div class="wizard-content-item text-center">                        
+                        <h2>Referencias familiares</h2>
+                        <p>Ingrese 2 referencias familiar</p>
                      </div>
                      <div class="wizard-content-form">
                         <div class="wizard-form-field">
@@ -450,14 +476,20 @@
                                        formControlName="refNameF1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refNameF1'].errors }">
                                     <label>Nombre</label>
+                                    <div *ngIf="submitted && f['refNameF1'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refNameF1'].errors['required']">Nombre completo obligatoria.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="email" class="form-control" id="refEmailF1"
+                                    <input type="text" class="form-control" id="refEmailF1"
                                        placeholder="Correo electrónico" formControlName="refEmailF1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refEmailF1'].errors }">
                                     <label>correo electrónico</label>
+                                    <div *ngIf="submitted && f['refEmailF1'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refEmailF1'].errors['required']">Correo electrónico obligatorio.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -466,6 +498,9 @@
                                        placeholder="Número de teléfono" formControlName="refPhoneF1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refPhoneF1'].errors }">
                                     <label>Número de teléfono</label>
+                                    <div *ngIf="submitted && f['refPhoneF1'].errors" class="invalid-feedback"> 
+                                       <div *ngIf="f['refPhoneF1'].errors['required']">Numero de telémofono obligatorio.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -474,6 +509,9 @@
                                        formControlName="refCityF1" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refCityF1'].errors }">
                                     <label>Ciudad</label>
+                                    <div *ngIf="submitted && f['refCityF1'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refCityF1'].errors['required']">Ciudad obligatoria.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -482,14 +520,20 @@
                                        formControlName="refNameF2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refNameF2'].errors }">
                                     <label>Nombre</label>
+                                    <div *ngIf="submitted && f['refNameF2'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refNameF2'].errors['required']">Nombre completo obligatoria.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="email" class="form-control" id="refEmailF2"
+                                    <input type="text" class="form-control" id="refEmailF2"
                                        placeholder="Correo electrónico" formControlName="refEmailF2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refEmailF2'].errors }">
                                     <label>correo electrónico</label>
+                                    <div *ngIf="submitted && f['refEmailF2'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refEmailF2'].errors['required']">Correo electrónico obligatorio.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -498,6 +542,9 @@
                                        placeholder="Número de teléfono" formControlName="refPhoneF2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refPhoneF2'].errors }">
                                     <label>Número de teléfono</label>
+                                    <div *ngIf="submitted && f['refPhoneF2'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refPhoneF2'].errors['required']">Numero de telémofono obligatorio.</div>
+                                     </div>
                                  </div>
                               </div>
                               <div class="col-md-3">
@@ -506,6 +553,9 @@
                                        formControlName="refCityF2" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['refCityF2'].errors }">
                                     <label>Ciudad</label>
+                                    <div *ngIf="submitted && f['refCityF2'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refCityF2'].errors['required']">Ciudad obligatoria.</div>
+                                     </div>
                                  </div>
                               </div>
                            </div>
@@ -555,11 +605,11 @@
                                  de acuerdo con los artículos 289 y 290 del C.P.C.</p>
                                  <div class="n-summary" style="text-align: left;">
                                     <label style="float: left;">
-                                        <input type="radio" id="informationTypeYes" value="si" formControlName="informationType">
+                                        <input type="radio" id="informationTypeYes" value="si" formControlName="informationType" required [ngClass]="{ 'is-invalid': submitted && f['informationType'].errors }"> 
                                         <span class="checkmark">Mi información es real</span>
                                     </label>
                                     <label style="float: left;">
-                                        <input type="radio" id="informationTypeNo" value="no" formControlName="informationType">
+                                        <input type="radio" id="informationTypeNo" value="no" formControlName="informationType"  required [ngClass]="{ 'is-invalid': submitted && f['informationType'].errors }">
                                         <span class="checkmark">No, mi información no es real</span>
                                     </label>
                                     <div *ngIf="submitted && f['informationType'].errors" class="invalid-feedback" style="clear: both;">
@@ -573,29 +623,37 @@
                            <p style="text-align: center; padding-bottom: 10px;">Información de verificación
                            </p>
                         </div>
-                        <div class="">
+                        <div class="wizard-content-item text-center col-md-12">
+                           <h3>Cargue su documento de identidad:</h3>
                            <div class="row">
-                                 <div class="col-md-12">
-                                    <h3>Cargue su documento de identidad:</h3>
-                                    <ngx-awesome-uploader 
-                                      [adapter]="adapter" 
-                                      [captions]="captions"
-                                      [showPreviewContainer]="false">
-                                    </ngx-awesome-uploader>
-                                  </div>
+                             <div class="col-md-6 mb-3">
+                               <ngx-awesome-uploader 
+                                 [adapter]="adapter" 
+                                 [captions]="captions"
+                                 (change)="onFileChange($event)">
+                               </ngx-awesome-uploader>
+                               <div *ngIf="submitted && f['identityDocument'].errors" class="invalid-feedback">
+                                 <div *ngIf="f['identityDocument'].errors['required']">Por favor, cargue su documento de identidad.</div>
+                               </div>
+                             </div>
+                             <div *ngIf="uploadedImage" class="preview col-md-6">
+                               <h4>Vista previa:</h4>
+                               <img [src]="uploadedImage" alt="Imagen cargada" class="img-fluid" style="max-width: 60%;">
+                             </div>
                            </div>
-                        </div>
-                     </div>
-
-                     <div class="wizard-footer" style="min-height: 350px;">
-                        
-                        <div class="actions">
-                           <ul>
-                             <li><span class="js-btn-prev" title="Atras"><i class="fa fa-arrow-left"></i> Atras</span></li>
-                             <li><button type="submit" id="submit-form" title="NEXT" (click)="saveRequest">Enviar <i class="fa fa-arrow-right"></i></button></li>
-                           </ul>
                          </div>
                      </div>
+
+                   
+                          <div class="wizard-footer">
+                            <div class="actions">
+                              <ul>
+                                <li><span class="js-btn-prev" title="Atras"><i class="fa fa-arrow-left"></i> Atras</span></li>
+                                <li><button type="submit" id="submit-form" title="enviar">Enviar <i class="fa fa-arrow-right"></i></button></li>
+                              </ul>
+                            </div>
+                          </div>
+                        
                   </div>
                </div>
             </form>
