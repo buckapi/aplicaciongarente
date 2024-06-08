@@ -88,11 +88,10 @@ section {
 
 button {
   cursor: pointer;
- 
-    background-color: #ddeef9;
-    /* padding: 10px; */
-    
-    margin-bottom: 10px;
+  background-color: #bfb26c;
+  /* padding: 10px; */
+  margin-bottom: 10px;
+  border-radius: 5%;
 }
 
 
