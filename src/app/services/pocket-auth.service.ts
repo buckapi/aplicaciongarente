@@ -12,7 +12,9 @@ import { GlobalService } from './global.service';
 export class PocketAuthService {
   private pb: PocketBase;
 
-  constructor(public virtualRouter: virtualRouter,public global:GlobalService) {
+  constructor(
+    public virtualRouter: virtualRouter,
+    public global:GlobalService) {
     this.pb = new PocketBase('https://db.buckapi.com:8090');
   }
 
@@ -31,7 +33,7 @@ export class PocketAuthService {
     try {
       const record = await this.pb.collection('camiwaSpecialties').create(specialtyData);
       console.log('Especialidad guardada exitosamente:', record);
-this.global.getSpecialties();
+// this.global.getSpecialties();
       return record; // Si necesitas devolver el registro creado
     } catch (error) {
       console.error('Error al guardar la especialidad:', error);
