@@ -1,8 +1,13 @@
 <div class="wrapper clearfix">
    <div class="wizard-part-title">
-      <h3> Aplicación servicio <br> de garante | Legales</h3>
-
-   </div>
+      <h3>Aplicación servicio <br> de garante | Legales</h3>
+     <button>
+      <a (click)="global.setRoute('login')" class="login-button">
+        <i class="fa fa-user"></i> Login
+      </a>
+   </button>
+    </div>
+    
    <!--multisteps-form-->
    <div class="multisteps-form">
       <!--progress bar-->
@@ -11,6 +16,8 @@
            
             <div class="multisteps-form__progress">
              <button> <a href="https://legales.com.co"> <i class="fa fa-arrow-left"></i> Inicio</a></button>
+             
+
                <button class="multisteps-form__progress-btn js-active">1</button>
                <button class="multisteps-form__progress-btn">2</button>
                <button class="multisteps-form__progress-btn">3</button>
@@ -27,14 +34,14 @@
                <!--single form panel-->
                <div class="multisteps-form__panel js-active" data-animation="slideVert">
                   <div class="inner pb-100">
-                    <div class="wizard-topper">
+                   <!--  <div class="wizard-topper">
                       <div class="wizard-progress">
                         <span>1 de 4 Completado</span>
                         <div class="progress">
                           <div class="progress-bar"></div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="wizard-content-item text-justify">
                       <h2 style="text-align: center;">
                         AUTORIZACIÓN TRATAMIENTO DE DATOS PERSONALES Y
@@ -88,7 +95,7 @@
                 
                <div class="multisteps-form__panel " data-animation="slideVert">
                   <div class="inner pb-100">
-                     <div class="wizard-topper">
+                     <!-- <div class="wizard-topper">
                         <div class="wizard-progress">
                            <span>2 de 4 Completado</span>
                            <div class="progress">
@@ -96,7 +103,7 @@
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> -->
                      <div class="wizard-content-item text-center">
                         <h2></h2>
                         <p>Seleccione las respuestas correspondientes</p>
@@ -212,10 +219,10 @@
                               </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" class="form-control" id="infLabolMount" placeholder="Cuanto gana"
+                                    <input type="text" class="form-control" id="infLabolMount" placeholder="A cuanto ascienden tus ingresos mensuales"
                                        formControlName="infLabolMount" required [ngClass]="{ 'is-invalid': 
                                  submitted && f['infLabolMount'].errors }">
-                                    <label>Cuanto gana</label>
+                                    <label>A cuanto ascienden tus ingresos mensuales</label>
                                     <div *ngIf="submitted && f['infLabolMount'].errors" class="invalid-feedback">
                                        <div *ngIf="f['infLabolMount'].errors['required']">Campo obligatorio.</div>
                                      </div>
@@ -357,14 +364,14 @@
                </div>
                <div class="multisteps-form__panel" data-animation="slideVert">
                   <div class="inner pb-100">
-                     <div class="wizard-topper">
+                     <!-- <div class="wizard-topper">
                         <div class="wizard-progress">
                            <span>3 de 4 completado</span>
                            <div class="progress">
                               <div class="progress-bar" style="width: 65%;"></div>
                            </div>
                         </div>
-                     </div>
+                     </div> -->
                      <div class="wizard-content-item text-center">
                         <h2>Referencias personales</h2>
                         <p>Ingrese 2 referencias personales</p>
@@ -585,15 +592,15 @@
                </div><!--  -->
                <div class="multisteps-form__panel " data-animation="slideVert">
                   <div class="inner pb-100">
-                     <div class="wizard-topper">
+                     <!-- <div class="wizard-topper">
                         <div class="wizard-progress">
-                           <span>6 of 6 Completedo</span>
+                           <span>4 de 4 Completado</span>
                            <div class="progress">
                               <div class="progress-bar">
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> -->
                      <div class="wizard-content-item text-center">
                         <h2>Declaración</h2>
 

@@ -1,0 +1,22 @@
+<div class="login-container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form >
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" ngModel required>
+        </div>
+        <div class="form-buttons">
+            <button type="button" (click)="global.setRoute('home')">Volver</button>
+            <button type="submit"(click)="global.setRoute('request')" >Login</button>
+
+          </div>
+          
+      </form>
+    </div>
+  </div>
+  
