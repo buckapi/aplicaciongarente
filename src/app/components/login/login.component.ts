@@ -44,9 +44,9 @@ get f(): { [key: string]: AbstractControl } {
 }
 onLogin(): void {
   this.submitted = true;
- if (this.ngFormLogin.invalid) {
-   return;
- }
+  if (this.ngFormLogin.invalid) {
+    return;
+  }
 
   // Iniciar sesión utilizando el servicio PocketAuthService
   this.pocketAuthService
@@ -64,7 +64,7 @@ onLogin(): void {
         // Redirigir al usuario según el tipo de usuario registrado
         switch (type) {
           case 'admin':
-            this.virtualRouter.routerActive = 'dashboard';
+            this.virtualRouter.routerActive = 'request';
             break;
           case 'traveler':
             // Si el tipo de usuario es 'cliente', hacer la solicitud al API
@@ -73,12 +73,13 @@ onLogin(): void {
               'class',
               'fixed sidebar-mini sidebar-collapse'
             );
-            this.fetchClientData(id); // Pasar el ID del cliente al método
-            break;
+             // Pasar el ID del cliente al método
+            return; // Salir del switch para evitar redirigir a 'request'
           default:
-            this.virtualRouter.routerActive = 'dashboard';
+            this.virtualRouter.routerActive = 'home';
             break;
         }
+
         // Marcar al usuario como logueado en localStorage
         localStorage.setItem('isLoggedin', 'true');
         // Actualizar los datos del cliente en la aplicación
@@ -88,36 +89,8 @@ onLogin(): void {
     );
 }
 
-fetchClientData(userId: string): void {
-  // Crear una instancia de PocketBase
-  const pb = new PocketBase('https://db.buckapi.com:8090');
 
-  // Hacer la solicitud para obtener los datos del cliente
-  pb.collection('camiwaTravelers')
-    .getList(1, 1, {
-      userId: userId,
-    })
-    .then((resultList: any) => {
-      // Verificar si hay resultados
-      if (resultList.items && resultList.items.length > 0) {
-        const record = resultList.items[0]; // Tomar el primer registro
-        console.log('Datos del cliente:', JSON.stringify(record));
-        localStorage.setItem('status', record.status);
-        // Redirigir al usuario al home del clienteuser
-        this.virtualRouter.routerActive = 'dashboard';
-      } else {
-        console.error('No se encontraron registros para el usuario:', userId);
-        // Redirigir al usuario al home
-        this.virtualRouter.routerActive = 'bashboard';
-      }
-    })
-    .catch((error) => {
-      // Manejar errores de la solicitud al API aquí
-      console.error('Error al obtener datos del cliente:', error);
-      // Redirigir al usuario al home
-      this.virtualRouter.routerActive = 'user-home';
-    });
-}
+
 
 onIsError(): void {
   this.isError = true;

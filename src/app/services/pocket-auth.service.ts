@@ -11,7 +11,7 @@ import { GlobalService } from './global.service';
 })
 export class PocketAuthService {
   private pb: PocketBase;
-
+  isLoggedIn=false;
   constructor(
     public virtualRouter: virtualRouter,
     public global:GlobalService) {
@@ -68,7 +68,26 @@ export class PocketAuthService {
   loginUser(email: string, password: string): Observable<any> {
     return from(this.pb.collection('users').authWithPassword(email, password));
   }
+  checkLoginStatus(): boolean {
+    const token = localStorage.getItem('pocketbase_auth');
+    this.isLoggedIn = !!token;
+  
+    if (this.isLoggedIn) {
+      // Opción a: Si está logueado
+      this.global.setRoute('request');
+      console.log("El usuario está logueado.");
+      // Aquí puedes añadir más lógica específica para cuando el usuario esté logueado
+    } else {
+      this.global.setRoute('home');
 
+      // Opción b: Si no está logueado
+      console.log("El usuario no está logueado.");
+      // Aquí puedes añadir más lógica específica para cuando el usuario no esté logueado
+    }
+  
+    return this.isLoggedIn;
+  }
+  
   logoutUser(): Observable<any> {
     // Limpiar la autenticación almacenada
     localStorage.removeItem('accessToken');

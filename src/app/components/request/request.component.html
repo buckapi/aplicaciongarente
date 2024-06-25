@@ -1,1 +1,44 @@
-<p>request works!</p>
+<div class="wrapper clearfix">
+    <div class="wizard-part-title">
+        <h3>Aplicación servicio <br> de garante | Legales</h3>
+        <button>
+          <!--   <a (click)="global.setRoute('login')" class="login-button">
+                <i class="fa fa-user"></i> Cerrar sesión
+            </a> -->
+        </button>
+    </div>
+
+    <div class="multisteps-form__panel js-active" data-animation="slideVert" style="    margin: 0px;
+    top: 85px;">
+        <div class="inner pb-100">
+            <div class="wizard-content-item text-center">
+                <h2>Listado de resultados Aplicación Garante</h2>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Correo electrónico</th>
+                        <th scope="col">Nombre completo</th>
+                        <th scope="col">Número de documento</th>
+                        <th scope="col">Número de teléfono</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of global.requests">
+                        <td><p>{{request.email}}</p></td>
+                        <td><p>{{request.name}}</p></td>
+                        <td><p>{{request.di}}</p></td>
+                        <td><p>{{request.numWhat}}</p></td>
+                        <td><p>{{request.placExpd}}</p></td>
+                        <td>
+                            <button class="btn btn-primary btn-block" (click)="view(request)">Ver más detalle</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>

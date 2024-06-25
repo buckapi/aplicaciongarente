@@ -25,6 +25,7 @@ import { ServProIntComponent } from './components/serv-pro-int/serv-pro-int.comp
 import { ServAduExtComponent } from './components/serv-adu-ext/serv-adu-ext.component';
 import { LoginComponent } from './components/login/login.component';
 import { RequestComponent } from './components/request/request.component';
+import { PocketAuthService } from './services/pocket-auth.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -61,8 +62,10 @@ export class AppComponent {
   constructor(
     public global: GlobalService,
     public script: ScriptService,
+    public pocketAuthService: PocketAuthService,
     public virtualRouter: virtualRouter ,
  ) {
+  this.loginCheck();
   this.script.load(
     'gmaps',
     'map-helper',
@@ -88,6 +91,9 @@ export class AppComponent {
     })
     .catch(error => console.log(error));
     // this.epicFunction();
+  }
+  loginCheck(){
+    this.pocketAuthService.checkLoginStatus();
   }
 }
 
