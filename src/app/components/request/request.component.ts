@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthRESTService } from '@app/services/auth-rest.service';
 import { GlobalService } from '@app/services/global.service';
+import { PocketAuthService } from '@app/services/pocket-auth.service';
 import { Yeoman } from '@app/services/yeoman.service';
 
 @Component({
@@ -14,8 +16,14 @@ import { Yeoman } from '@app/services/yeoman.service';
 export class RequestComponent {
 constructor (
   public global: GlobalService,
-  public yeoman: Yeoman
-){}
+  public yeoman: Yeoman,
+  public pocketAuth: PocketAuthService,
+  public authRest: AuthRESTService
+
+){
+  this.authRest.getCurrentUser();
+
+}
 
 
 view(request:any){
