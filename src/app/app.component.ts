@@ -11,18 +11,6 @@ import { HomeComponent } from './components/home/home.component';
 import { virtualRouter } from './services/virtualRouter.service';
 import { TestComponent } from './components/test/test.component';
 import { HeaderDashboardComponent } from './components/ui/header-dashboard/header-dashboard.component';
-import { AboutComponent } from './components/about/about.component';
-import { ServDetailComponent } from './components/serv-detail/serv-detail.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { FaqComponent } from './components/faq/faq.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { ServiceComponent } from './components/service/service.component';
-import { ServPenalComponent } from './components/serv-penal/serv-penal.component';
-import { ServCivilComponent } from './components/serv-civil/serv-civil.component';
-import { ServInmoComponent } from './components/serv-inmo/serv-inmo.component';
-import { ServEmpComponent } from './components/serv-emp/serv-emp.component';
-import { ServProIntComponent } from './components/serv-pro-int/serv-pro-int.component';
-import { ServAduExtComponent } from './components/serv-adu-ext/serv-adu-ext.component';
 import { LoginComponent } from './components/login/login.component';
 import { RequestComponent } from './components/request/request.component';
 import { PocketAuthService } from './services/pocket-auth.service';
@@ -40,18 +28,7 @@ import { DetailComponent } from './components/detail/detail.component';
     HeaderHomeComponent,
     TestComponent,
     HeaderDashboardComponent,
-    AboutComponent,
-    ServDetailComponent,
-    BlogComponent,
-    FaqComponent,
-    ContactComponent,
-    ServiceComponent,
-    ServPenalComponent,
-    ServCivilComponent,
-    ServInmoComponent,
-    ServEmpComponent,
-    ServProIntComponent,
-    ServAduExtComponent,
+    
     LoginComponent,
     RequestComponent,
     DetailComponent
