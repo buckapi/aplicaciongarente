@@ -1,0 +1,33 @@
+
+.wizard-content-item p {
+    color: #13263e;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.2;
+  /*   margin-top: 20px;
+    padding: 10px; */
+    text-align: left;
+}
+
+.has-float-label label {
+    position: static;
+    font-size: 25px;
+    color: #13263e;
+    font-weight: 600;
+
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 20px; 
+}
+
+.wizard-content-item p {
+  /*   color: #13263e;
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 1.2; */
+    margin-top: 5px;
+}

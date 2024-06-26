@@ -1,0 +1,297 @@
+<div class="wrapper clearfix">
+    <div class="wizard-part-title">
+       <h3>Aplicación servicio <br> de garante | Legales</h3>
+      <button>
+      
+    </button>
+     </div>
+     
+    <!--multisteps-form-->
+    <div class="multisteps-form">
+       <!--progress bar-->
+       <div class="row">
+          <div class="col-4 col-lg-4 ml-auto mr-auto mb-5 mt-5">
+            
+             <div class="multisteps-form__progress">
+              <button> <a (click)="global.setRoute('request')"> <i class="fa fa-arrow-left"></i> Todo el listado</a></button>
+              
+             </div>
+          </div>
+       </div>
+       <!--form panels-->
+       <div class="row">
+          <div class="col-12 col-lg-12 m-auto">
+             <!-- <form class="multisteps-form__form clearfix" action="index.html#" method="post" id="wizard"> -->
+             <form class="multisteps-form__form clearfix">
+ 
+                <!--single form panel-->
+                <div class="multisteps-form__panel js-active" data-animation="slideVert">
+                   <div class="inner pb-100">
+                  
+                     <div class="wizard-content-item text-justify">
+                       <h2 style="text-align: center;">
+                         Respuestas de aplicación
+                       </h2>
+                       <div class="row">
+                        <div class="wizard-content-item text-center col-md-12">
+                            <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Información
+                               personal
+                            </p>
+                         </div>
+                         
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>¿Qué tipo de cliente eres? <p>{{global.previewRequest.clienType}}</p></label>
+                               
+                            </div>
+                         </div>
+                        <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Nombre: </label>
+                              <p>{{global.previewRequest.name}}</p>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Tipo de documento de identidad: </label>
+                               <p>{{global.previewRequest.identityType}}</p>
+                            </div>
+                         </div>
+                        <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Documento de identidad: </label>
+                               <p>{{global.previewRequest.di}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Dirección de expedición: </label>
+                               <p>{{global.previewRequest.placExpd}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Número de teléfono Whatsapp: </label>
+                               <p>{{global.previewRequest.numWhat}}</p>
+                            </div>
+                         </div>
+                         <div class="wizard-content-item text-center col-md-12">
+                            <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Información Laboral
+                            </p>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>En que trabaja: </label>
+                               <p>{{global.previewRequest.infLabol}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-5">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>A cuanto ascienden tus ingresos mensuales: </label>
+                               <p>{{global.previewRequest.infLabolMount}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-4">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Desde cuando se dedica a este trabajo: </label>
+                               <p>{{global.previewRequest.infLabolTime}}</p>
+                            </div>
+                         </div>
+                         <div class="wizard-content-item text-center col-md-12">
+                            <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Información
+                               de contratación
+                            </p>
+                         </div>
+                         <div class="col-md-6">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Dirección del apartamento: </label>
+                               <p>{{global.previewRequest.aptoPlace}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Numero del apartamento: </label>
+                               <p>{{global.previewRequest.numApto}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Asesor: </label>
+                               <p>{{global.previewRequest.Asesor}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-6">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Inmobiliaria: </label>
+                               <p>{{global.previewRequest.inmobiliaria}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-6">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Valor de canon: </label>
+                               <p>{{global.previewRequest.canon}}</p>
+                            </div>
+                         </div>
+                         <div class="wizard-content-item text-center col-md-12">
+                            <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Referencia Personal 1
+                            </p>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Nombre: </label>
+                               <p>{{global.previewRequest.refNameP1}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Ciudad: </label>
+                               <p>{{global.previewRequest.refCityP1}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Correo: </label>
+                               <p>{{global.previewRequest.refEmailP1}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Teléfono: </label>
+                               <p>{{global.previewRequest.refPhoneP1}}</p>
+                            </div>
+                         </div>
+                         <div class="wizard-content-item text-center col-md-12">
+                            <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Referencia Personal 2
+                            </p>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Nombre: </label>
+                               <p>{{global.previewRequest.refNameP1}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Ciudad: </label>
+                               <p>{{global.previewRequest.refCityP2}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Correo: </label>
+                               <p>{{global.previewRequest.refEmailP2}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Teléfono: </label>
+                               <p>{{global.previewRequest.refPhoneP2}}</p>
+                            </div>
+                         </div>
+                         <div class="wizard-content-item text-center col-md-12">
+                            <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Referencia Familiar 1
+                            </p>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Nombre: </label>
+                               <p>{{global.previewRequest.refNameF1}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Ciudad: </label>
+                               <p>{{global.previewRequest.refCityF1}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Correo: </label>
+                               <p>{{global.previewRequest.refEmailF1}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Teléfono: </label>
+                               <p>{{global.previewRequest.refPhoneF1}}</p>
+                            </div>
+                         </div>
+                         <div class="wizard-content-item text-center col-md-12">
+                            <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Referencia Familiar 2
+                            </p>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Nombre: </label>
+                               <p>{{global.previewRequest.refNameF2}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Ciudad: </label>
+                               <p>{{global.previewRequest.refCityF2}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Correo: </label>
+                               <p>{{global.previewRequest.refEmailF2}}</p>
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="wizard-form-input position-relative form-group has-float-label">
+                             
+                               <label>Teléfono: </label>
+                               <p>{{global.previewRequest.refPhoneF2}}</p>
+                            </div>
+                         </div>
+                         <div class="wizard-content-item text-center col-md-12">
+                            <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Documento de identidad:
+                            </p>
+                         </div>
+                         
+                               <img src="{{global.previewRequest.images[0]}}"
+                               class="h-50 img-fluid object-fit-cover   w-50" alt="">
+                            
+                        
+
+                     </div>
+                        </div>
+                   </div>
+                 </div>
+
+             </form>
+          </div>
+       </div>
+    </div>
+ 
+ </div>

@@ -26,6 +26,7 @@ import { ServAduExtComponent } from './components/serv-adu-ext/serv-adu-ext.comp
 import { LoginComponent } from './components/login/login.component';
 import { RequestComponent } from './components/request/request.component';
 import { PocketAuthService } from './services/pocket-auth.service';
+import { DetailComponent } from './components/detail/detail.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -52,7 +53,8 @@ import { PocketAuthService } from './services/pocket-auth.service';
     ServProIntComponent,
     ServAduExtComponent,
     LoginComponent,
-    RequestComponent
+    RequestComponent,
+    DetailComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
