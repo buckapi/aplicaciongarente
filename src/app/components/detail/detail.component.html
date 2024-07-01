@@ -279,8 +279,13 @@
                             </p>
                          </div>
                          
-                               <img src="{{global.previewRequest.images[0]}}"
-                               class="h-50 img-fluid object-fit-cover   w-50" alt="">
+                              <!--  <div *ngFor="let image of global.previewRequest.images"> 
+                                 <img src="{{image}}" class="h-50 img-fluid object-fit-cover   w-50" alt="">
+                               </div> -->
+                               <div *ngFor="let image of global.previewRequest.images" class="image-container">
+                                 <img [src]="image" class="image" alt="">
+                             </div>
+                             
                             
                         
 

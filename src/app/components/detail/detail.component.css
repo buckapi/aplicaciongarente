@@ -31,3 +31,16 @@
     line-height: 1.2; */
     margin-top: 5px;
 }
+.image-container {
+  margin-bottom: 20px; /* Espacio entre imágenes */
+  display: flex;
+  justify-content: center; /* Centra la imagen horizontalmente */
+}
+
+.image {
+  max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
