@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
     this.ngFormRequest = this.formBuilder.group({
       terminos: [false, Validators.requiredTrue],
       email: ['', [Validators.required, Validators.email]],
-      clienType: ['', Validators.required],
+      /* clienType: ['', Validators.required], */
       declarationType: ['', Validators.required],
       informationType: ['', Validators.required],
       name: ['', Validators.required],
@@ -187,7 +187,7 @@ export class HomeComponent implements OnInit {
     this.ngFormRequest = this.formBuilder.group({
       terminos: [false, Validators.requiredTrue],
       email: ['', [Validators.required, Validators.email]],
-      clienType: ['', Validators.required],
+      /* clienType: ['', Validators.required], */
       declarationType: ['', Validators.required],
       informationType: ['', Validators.required],
       name: ['', Validators.required],
