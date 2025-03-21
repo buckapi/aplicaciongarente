@@ -92,7 +92,7 @@ export class Yeoman {
     this.goMessage = "";
     this.idClient = null;
     this.idDist = null;
-    this.imagesUrl = "https://www.buckapi.com/api/server/local-storage/tixsImages/";
+    this.imagesUrl = "https://www.legales.com.co/api/server/local-storage/tixsImages/";
     this.indexPreviewCli = 0;
     this.indexPreviewDist = 0;
     this.myOrders = null;
