@@ -41,7 +41,7 @@ export interface CardInterface {
 })
 export class DataApiService {
 	//ticket: Observable<any>;
-	private baseUrl = 'https://db.buckapi.com:8090/api';
+	private baseUrl = 'https://db.buckapi.lat:8090/api';
 
 	url:any;
 	cards:any;
