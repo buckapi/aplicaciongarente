@@ -15,7 +15,7 @@ export class PocketAuthService {
   constructor(
     public virtualRouter: virtualRouter,
     public global:GlobalService) {
-    this.pb = new PocketBase('https://db.buckapi.com:8090');
+    this.pb = new PocketBase('https://db.buckapi.lat:8090');
   }
 
   async saveCategor(categoryData:any): Promise<any> {
