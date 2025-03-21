@@ -47,9 +47,9 @@ interface ApiResponse {
 export class GlobalService {
   // pagesArray: number[] = [];
   public urlPrev="";
-  private requestsUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
+  private requestsUrl = 'https://db.buckapi.lat:8090/api/collections/formsLegalesRequests/records';
 /*   private categoriesUrl = 'http://localhost:8090/api/collections/category/records';
- */  private requestUrl = 'https://db.buckapi.com:8090/api/collections/formsLegalesRequests/records';
+ */  private requestUrl = 'https://db.buckapi.lat:8090/api/collections/formsLegalesRequests/records';
 
   /* private productsUrl = 'https://db.buckapi.com:8090/api/collections/frutmeProducts/records';
   private doctorsUrl = environment.apiUrl+'/api/collections/doctors/records';
