@@ -40,7 +40,7 @@ export class Yeoman {
   goMessage="";
   idClient:any;
   idDist:any;
-  imagesUrl="https://www.buckapi.com/api/server/local-storage/tixsImages/"
+  imagesUrl="https://www.legales.com.co/api/server/local-storage/tixsImages/"
   indexPreviewCli:number=0;
   indexPreviewDist:number=0;
   myOrders:any;
