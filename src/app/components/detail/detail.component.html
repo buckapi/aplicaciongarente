@@ -186,7 +186,7 @@
                             <div class="wizard-form-input position-relative form-group has-float-label">
                              
                                <label>Nombre: </label>
-                               <p>{{global.previewRequest.refNameP1}}</p>
+                               <p>{{global.previewRequest.refNameP2}}</p>
                             </div>
                          </div>
                          <div class="col-md-3">
@@ -210,6 +210,34 @@
                                <p>{{global.previewRequest.refPhoneP2}}</p>
                             </div>
                          </div>
+                         <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Nombre: </label>
+                              <p>{{global.previewRequest.refNameP3}}</p>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Ciudad: </label>
+                              <p>{{global.previewRequest.refCityP3}}</p>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Correo: </label>
+                              <p>{{global.previewRequest.refEmailP3}}</p>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Teléfono: </label>
+                              <p>{{global.previewRequest.refPhoneP3}}</p>
+                           </div>
+                        </div>
                          <div class="wizard-content-item text-center col-md-12">
                             <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Referencia Familiar 1
                             </p>
@@ -274,17 +302,41 @@
                                <p>{{global.previewRequest.refPhoneF2}}</p>
                             </div>
                          </div>
+                         <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Nombre: </label>
+                              <p>{{global.previewRequest.refNameF3}}</p>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Ciudad: </label>
+                              <p>{{global.previewRequest.refCityF3}}</p>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Correo: </label>
+                              <p>{{global.previewRequest.refEmailF3}}</p>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="wizard-form-input position-relative form-group has-float-label">
+                            
+                              <label>Teléfono: </label>
+                              <p>{{global.previewRequest.refPhoneF3}}</p>
+                           </div>
+                        </div>
                          <div class="wizard-content-item text-center col-md-12">
                             <p style="text-align: center; padding-bottom: 10px; font-weight: bold;">Documento de identidad:
                             </p>
                          </div>
-                         
-                              <!--  <div *ngFor="let image of global.previewRequest.images"> 
-                                 <img src="{{image}}" class="h-50 img-fluid object-fit-cover   w-50" alt="">
-                               </div> -->
-                               <div *ngFor="let image of global.previewRequest.images" class="image-container">
-                                 <img [src]="image" class="image" alt="">
-                             </div>
+                         <div *ngFor="let image of global.previewRequest.images" class="image-container">
+                           <img [src]="image" class="image" alt="">
+                         </div>
                              
                             
                         

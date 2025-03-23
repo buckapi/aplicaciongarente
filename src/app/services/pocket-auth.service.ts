@@ -101,7 +101,7 @@ export class PocketAuthService {
     this.pb.authStore.clear();
     this.virtualRouter.routerActive = "home";
     return new Observable<any>(observer => {
-      observer.next(); // Indicar que la operación de cierre de sesión ha completado
+      observer.next( true); // Indicar que la operación de cierre de sesión ha completado
       observer.complete();
     });
   }

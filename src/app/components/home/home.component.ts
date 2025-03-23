@@ -85,6 +85,10 @@ export class HomeComponent implements OnInit {
       refEmailP2: ['', [Validators.required, Validators.email]],
       refPhoneP2: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       refCityP2: ['', Validators.required],
+      refNameP3: ['', Validators.required],
+      refEmailP3: ['', [Validators.required, Validators.email]],
+      refPhoneP3: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      refCityP3: ['', Validators.required],
       refNameF1: ['', Validators.required],
       refEmailF1: ['', [Validators.required, Validators.email]],
       refPhoneF1: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
@@ -93,6 +97,10 @@ export class HomeComponent implements OnInit {
       refEmailF2: ['', [Validators.required, Validators.email]],
       refPhoneF2: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       refCityF2: ['', Validators.required],
+      refNameF3: ['', Validators.required],
+      refEmailF3: ['', [Validators.required, Validators.email]],
+      refPhoneF3: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      refCityF3: ['', Validators.required],
       identityDocument: ['', Validators.required],
     });
   }
@@ -211,6 +219,10 @@ export class HomeComponent implements OnInit {
       refEmailP2: ['', [Validators.required, Validators.email]],
       refPhoneP2: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       refCityP2: ['', Validators.required],
+      refNameP3: ['', Validators.required],
+      refEmailP3: ['', [Validators.required, Validators.email]],
+      refPhoneP3: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      refCityP3: ['', Validators.required],
       refNameF1: ['', Validators.required],
       refEmailF1: ['', [Validators.required, Validators.email]],
       refPhoneF1: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
@@ -219,6 +231,10 @@ export class HomeComponent implements OnInit {
       refEmailF2: ['', [Validators.required, Validators.email]],
       refPhoneF2: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       refCityF2: ['', Validators.required],
+      refNameF3: ['', Validators.required],
+      refEmailF3: ['', [Validators.required, Validators.email]],
+      refPhoneF3: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      refCityF3: ['', Validators.required],
       identityDocument: ['', Validators.required],
     });
   }

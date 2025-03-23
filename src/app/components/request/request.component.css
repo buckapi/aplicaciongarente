@@ -73,7 +73,17 @@
     border: 1px solid #ddd;
     border-radius: 5px;
 }
-
+@media (max-width: 768px) {
+  .multisteps-form__panel.js-active {
+    position: initial;
+    top: 0;
+    left: 0;
+    height: auto !important;
+    overflow: visible;
+    opacity: 1;
+    visibility: visible;
+}
+}
 .wizard-form-input {
     margin-bottom: 20px;
 }
@@ -92,5 +102,37 @@
 }
 
 
-
+@media screen and (max-width: 460px) {
+  .wizard-content-item {
+      padding-top: 5px;
+  }
+}
+@media (max-width: 600px) {
+  .table {
+      width: 100%; /* Ensure the table takes full width */
+      overflow-x: auto; /* Allow horizontal scrolling */
+      display: block; /* Display as block for better responsiveness */
+  }
   
+  .table thead {
+      display: none; /* Hide the header on mobile */
+  }
+
+  .table tr {
+      display: flex; /* Stack table rows vertically */
+      flex-direction: column; /* Stack items vertically */
+      margin-bottom: 15px; /* Add space between rows */
+  }
+
+  .table td {
+      display: flex; /* Use flexbox for better alignment */
+      justify-content: space-between; /* Space out content */
+      padding: 10px; /* Add padding for better touch targets */
+      border: 1px solid #ddd; /* Add border for separation */
+  }
+
+  .btn-primary {
+      width: 100%; /* Make buttons full width */
+      margin-top: 10px; /* Add space above buttons */
+  }
+}

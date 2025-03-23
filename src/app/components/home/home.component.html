@@ -467,6 +467,50 @@
                                      </div>
                                  </div>
                               </div>
+                              <div class="col-md-3">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="text" class="form-control" id="refNameP3" placeholder="Nombre"
+                                       formControlName="refNameP3" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['refNameP3'].errors }">
+                                    <label>Nombre</label>
+                                    <div *ngIf="submitted && f['refNameP3'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refNameP3'].errors['required']">Nombre completo obligatoria.</div>
+                                     </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="text" class="form-control" id="refEmailP3"
+                                       placeholder="Correo electrónico" formControlName="refEmailP3" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['refEmailP3'].errors }">
+                                    <label>correo electrónico</label>
+                                    <div *ngIf="submitted && f['refEmailP3'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refEmailP3'].errors['required']">Correo electrónico obligatorio.</div>
+                                     </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="number" class="form-control" id="refPhoneP3"
+                                       placeholder="Número de teléfono" formControlName="refPhoneP3" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['refPhoneP3'].errors }">
+                                    <label>Número de teléfono</label>
+                                    <div *ngIf="submitted && f['refPhoneP3'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refPhoneP3'].errors['required']">Numero de telémofono obligatorio.</div>
+                                     </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="text" class="form-control" id="refCityP3" placeholder="Ciudad"
+                                       formControlName="refCityP3" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['refCityP3'].errors }">
+                                    <label>Ciudad</label>
+                                    <div *ngIf="submitted && f['refCityP3'].errors" class="invalid-feedback">  
+                                       <div *ngIf="f['refCityP3'].errors['required']">Ciudad obligatoria.</div>                                 
+                                     </div>
+                                 </div>
+                              </div>
                            </div>
                         </div>
                      </div>
@@ -563,6 +607,50 @@
                                     <label>Ciudad</label>
                                     <div *ngIf="submitted && f['refCityF2'].errors" class="invalid-feedback">
                                        <div *ngIf="f['refCityF2'].errors['required']">Ciudad obligatoria.</div>
+                                     </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="text" class="form-control" id="refNameF3" placeholder="Nombre"
+                                       formControlName="refNameF3" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['refNameF3'].errors }">
+                                    <label>Nombre</label>
+                                    <div *ngIf="submitted && f['refNameF3'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refNameF3'].errors['required']">Nombre completo obligatoria.</div>
+                                     </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="text" class="form-control" id="refEmailF3"
+                                       placeholder="Correo electrónico" formControlName="refEmailF3" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['refEmailF3'].errors }">
+                                    <label>correo electrónico</label>
+                                    <div *ngIf="submitted && f['refEmailF3'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refEmailF3'].errors['required']">Correo electrónico obligatorio.</div>
+                                     </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="number" class="form-control" id="refPhoneF3"
+                                       placeholder="Número de teléfono" formControlName="refPhoneF3" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['refPhoneF3'].errors }">
+                                    <label>Número de teléfono</label>
+                                    <div *ngIf="submitted && f['refPhoneF3'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refPhoneF3'].errors['required']">Numero de telémofono obligatorio.</div>
+                                     </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="text" class="form-control" id="refCityF3" placeholder="Ciudad"
+                                       formControlName="refCityF3" required [ngClass]="{ 'is-invalid': 
+                                    submitted && f['refCityF3'].errors }">
+                                    <label>Ciudad</label>
+                                    <div *ngIf="submitted && f['refCityF3'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['refCityF3'].errors['required']">Ciudad obligatoria.</div>
                                      </div>
                                  </div>
                               </div>

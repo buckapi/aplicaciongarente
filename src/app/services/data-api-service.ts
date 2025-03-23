@@ -104,21 +104,7 @@ export class DataApiService {
 		const url_api = this.yeoman.origin.restUrl+'/api/posts';
 		return this.http.get(url_api);
 	}
-	/* deleteProduct(id: string){
-		const token = this.AuthRESTService.getToken();
-		const url_api=	this.yeoman.origin.restUrl+`/api/products/${id}/?access_token$={token}`;
-		return this.http
-		.delete<PartInterface>(url_api, {headers: this.headers})
-		.pipe(map(data => data));
-	}
-	deleteCategory(id: string){
-		const token = this.AuthRESTService.getToken();
-		const url_api=	this.yeoman.origin.restUrl+`/api/products/${id}/?access_token$={token}`;
-		return this.http
-		.delete<PartInterface>(url_api, {headers: this.headers})
-		.pipe(map(data => data));
-	
-	} */
+
 	
 	savePost(post :PostInterface){
 		const url_api=	this.yeoman.origin.restUrl+'/api/posts';
@@ -139,31 +125,7 @@ export class DataApiService {
 		.pipe(map(data => data));
 	}
 
-	saveClient(client: ClientInterface) {
-		const url_api = this.yeoman.origin.restUrl + '/api/collections/svbProducts/records';
-		return this.http.post<ClientInterface>(url_api, client).pipe(
-		  map(data => data)
-		);
-	  }
-	  
-	  saveColor(color: ColorInterface) {
-		const url_api = this.yeoman.origin.restUrl + '/api/collections/svbColors/records';
-		return this.http.post<ColorInterface>(url_api, color).pipe(
-		  map(data => data)
-		);
-	  }
-	  saveBrand( brand: BrandInterface) {
-		const url_api = this.yeoman.origin.restUrl + '/api/collections/svbBrands/records';
-		return this.http.post<BrandInterface>(url_api, brand).pipe(
-		  map(data => data)
-		);
-	  }
-	  saveCategory( category: CategoryInterface) {
-		const url_api = this.yeoman.origin.restUrl + '/api/collections/svbCategories/records';
-		return this.http.post<CategoryInterface>(url_api, category).pipe(
-		  map(data => data)
-		);
-	  }
+	
       saveRequest( request: RequestInterface) {
 		const url_api = this.yeoman.origin.restUrl + '/api/collections/formsLegalesRequests/records';
 		return this.http.post<RequestInterface>(url_api, request).pipe(
@@ -205,25 +167,7 @@ export class DataApiService {
 		.put<RubroInterfaces>(url_api, car)
 		.pipe(map(data => data));
 	}
-	updateColor(colorData: any, id: string): Observable<any> {
-		const url = `https://db.buckapi.com:8090/api/collections/svbConfig/records/${id}`;
-		return this.http.patch(url, colorData).pipe(
-		  map(response => response)
-		);
-	  }
-	  updateRecord(recordId: string, data: any): Observable<any> {
-		const url = `${this.baseUrl}/collections/svbConfig/records/${recordId}`;
-		return this.http.patch<any>(url, data);
-	  }
-	productUpdate(clientData: any, id: string): Observable<any> {
-		// Construir la URL de la solicitud
-		const url = `https://db.buckapi.com:8090/api/collections/svbProducts/records/${id}`;
 	
-		// Realizar la solicitud PATCH para actualizar el registro
-		return this.http.patch(url, clientData).pipe(
-		  map(response => response)
-		);
-	  }
 	  
 	testimonyUpdate(client :ClientInterface, id: string){
 		// let token = this.authService.getToken();
