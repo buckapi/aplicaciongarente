@@ -78,6 +78,7 @@ export class GlobalService {
     name: string;
     identityType: string;
     di: string;
+    rrss: string;
     placExpd: string;
     numWhat: string;
     infLabol: string;
@@ -123,6 +124,7 @@ export class GlobalService {
     name: "",
     identityType: "",
     di: "",
+    rrss: "",
     placExpd: "",
     numWhat: "",
     infLabol: "",

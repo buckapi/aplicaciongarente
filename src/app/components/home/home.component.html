@@ -170,7 +170,7 @@
                               </div>
                               <div class="col-md-4">
                                  <div class="wizard-form-input position-relative form-group has-float-label">
-                                    <input type="text" class="form-control" id="di" placeholder="Cedula de ciudadania"
+                                    <input type="text" class="form-control" id="di" placeholder="Ej: 1125367841"
                                        formControlName="di" required [ngClass]="{ 'is-invalid': 
                                     submitted && f['di'].errors }">
                                     <label>Número de documento</label>
@@ -199,6 +199,18 @@
                                     <label>Número de celular WhatsApp</label>
                                     <div *ngIf="submitted && f['numWhat'].errors" class="invalid-feedback">
                                        <div *ngIf="f['numWhat'].errors['required']">El Número de celular WhatsApp es obligatorio.</div>
+                                     </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="wizard-form-input position-relative form-group has-float-label">
+                                    <input type="text" class="form-control" id="rrss"
+                                       placeholder="Enlace o usuario de la red social" formControlName="rrss" required
+                                       [ngClass]="{ 'is-invalid': 
+                                    submitted && f['rrss'].errors }">
+                                    <label>Dejanos tu usuario de la red social que mas uses</label>
+                                    <div *ngIf="submitted && f['rrss'].errors" class="invalid-feedback">
+                                       <div *ngIf="f['rrss'].errors['required']">Enlace o usuario incorrecto.</div>
                                      </div>
                                  </div>
                               </div>
