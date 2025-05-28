@@ -1,12 +1,10 @@
-
 .wizard-content-item p {
     color: #13263e;
     font-size: 25px;
     font-weight: 400;
     line-height: 1.2;
-  /*   margin-top: 20px;
-    padding: 10px; */
     text-align: left;
+    margin-bottom: 8px;
 }
 
 .has-float-label label {
@@ -14,33 +12,101 @@
     font-size: 25px;
     color: #13263e;
     font-weight: 600;
-
+    margin-bottom: 4px;
 }
 
 .title {
     text-align: center;
     font-weight: 700;
     font-size: 30px;
-    padding: 20px; 
+    padding: 10px 0;
 }
 
-.wizard-content-item p {
-  /*   color: #13263e;
-    font-size: 33px;
-    font-weight: 600;
-    line-height: 1.2; */
-    margin-top: 5px;
+.wizard-form-input {
+    margin-bottom: 12px;
 }
+
+.wizard-form-input p {
+    margin: 0;
+    padding: 8px 0;
+    color: #444;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.multisteps-form__progress {
+    margin-bottom: 20px;
+}
+
+.multisteps-form__progress button {
+    padding: 8px 16px;
+    background-color: #bfb26c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.multisteps-form__progress button a {
+    color: white;
+    text-decoration: none;
+}
+
+.multisteps-form__progress button:hover {
+    background-color: #b99e01;
+}
+
+.wizard-content-item h2 {
+    margin: 20px 0 15px;
+    font-size: 24px;
+    color: #13263e;
+    text-align: center;
+}
+
+.wizard-content-item h2 + .row {
+    margin-top: 15px;
+}
+
+.wizard-content-item .row {
+    margin-bottom: 15px;
+}
+
+.wizard-content-item .col-md-3 {
+    padding: 8px;
+}
+
+.wizard-content-item .col-md-6 {
+    padding: 8px;
+}
+
 .image-container {
-  margin-bottom: 20px; /* Espacio entre imágenes */
-  display: flex;
-  justify-content: center; /* Centra la imagen horizontalmente */
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 .image {
-  max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-  object-fit: cover; /* Ajusta la imagen dentro del contenedor */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .wizard-content-item p,
+    .has-float-label label {
+        font-size: 20px;
+    }
+    
+    .wizard-form-input p {
+        font-size: 16px;
+    }
+    
+    .image {
+        max-width: 90%;
+    }
 }

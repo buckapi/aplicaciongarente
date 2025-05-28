@@ -1,16 +1,14 @@
 <div class="wrapper clearfix">
     <div class="wizard-part-title">
         <h3>Aplicación servicio <br> de garante | Legales</h3>
-        <button>
-            <a (click)="pocketAuth.logoutUser()" class="login-button">
-                <i class="fa fa-user"></i> Cerrar sesión
-            </a>
+        <button (click)="pocketAuth.logoutUser()" class="login-button">
+            <i class="fa fa-user"></i> Cerrar sesión
         </button>
     </div>
 
     <div class="multisteps-form__panel js-active" data-animation="slideVert" >
         <div class="inner pb-100">
-            <div class="wizard-content-item text-center" style="padding-top: 5%;">
+            <div class="wizard-content-item text-center" >
                 <h2>Listado de resultados Aplicación Garante</h2>
             </div>
             <table class="table">

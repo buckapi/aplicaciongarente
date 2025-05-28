@@ -741,7 +741,7 @@ select.form-control option[value=""][disabled] {
 .multisteps-form__progress {
   background-image: url(../img/step-bg.png);
   background-repeat: repeat-x;
-  padding: 80px 110px;
+  padding: 0px 10px;
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
@@ -1432,7 +1432,7 @@ select.form-control option[value=""][disabled] {
 ================================================== */
 @media screen and (max-width: 1440px) {
   .wrapper {
-    padding: 90px 40px;
+    padding: 10px 10px;
     margin: 0;
     -webkit-transform: scale(0.9);
         -ms-transform: scale(0.9);

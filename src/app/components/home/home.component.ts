@@ -134,7 +134,7 @@ export class HomeComponent implements OnInit {
     return fieldLabels[key as keyof typeof fieldLabels] || key;
   }
   
-  saveRequest() {
+  /* saveRequest() {
     this.submitted = true; 
   
     // Verifica si el formulario es válido antes de enviarlo
@@ -184,8 +184,42 @@ export class HomeComponent implements OnInit {
         console.log('Error al guardar la solicitud:', error);
       }
     );
-  }
+  } */
   
+    saveRequest() {
+      this.submitted = true; 
+      
+      // Eliminamos la verificación de validez del formulario
+      let data: any = this.ngFormRequest.value;
+      data.images = this._butler.uploaderImages;
+      this._butler.uploaderImages = [];
+      
+      this.dataApiService.saveRequest(data).subscribe(
+        (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: 'Solicitud enviada correctamente.'
+          }).then(() => {
+            this.global.request = '';
+            this.yeoman.allrequest.push(response);
+            this.yeoman.allrequest = [...this.yeoman.allrequest];
+            this.isError = false;
+            this.ngFormRequest.reset();
+            this.submitted = false;
+            window.location.reload();
+          });
+        },
+        (error) => {
+          this.onIsError();
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Ocurrió un error al enviar la solicitud.'
+          });
+        }
+      );
+    }
   onFileChange(event: any) {
     const reader = new FileReader();
     const file = event.target.files[0];
@@ -216,51 +250,7 @@ export class HomeComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    this.ngFormRequest = this.formBuilder.group({
-      terminos: [false, Validators.requiredTrue],
-      email: ['', [Validators.required]],
-      /* clienType: ['', Validators.required], */
-      declarationType: ['', Validators.required],
-      informationType: ['', Validators.required],
-      name: ['', Validators.required],
-      identityType: ['', Validators.required],
-      di: ['', Validators.required],
-      placExpd: ['', Validators.required],
-      numWhat: ['', [Validators.required, ]],
-      infLabol: ['', Validators.required],
-      infLabolMount: ['', Validators.required],
-      infLabolTime: ['', Validators.required],
-      aptoPlace: ['', Validators.required],
-      numApto: ['', Validators.required],
-      Asesor: ['', Validators.required],
-      inmobiliaria: ['', Validators.required],
-      canon: ['', [Validators.required, ]],
-      refNameP1: ['', Validators.required],
-      refEmailP1: ['', [Validators.required]],
-      refPhoneP1: ['', [Validators.required, ]],
-      refCityP1: ['', Validators.required],
-      refNameP2: ['', Validators.required],
-      refEmailP2: ['', [Validators.required]],
-      refPhoneP2: ['', [Validators.required, ]],
-      refCityP2: ['', Validators.required],
-      refNameP3: ['', Validators.required],
-      refEmailP3: ['', [Validators.required]],
-      refPhoneP3: ['', [Validators.required, ]],
-      refCityP3: ['', Validators.required],
-      refNameF1: ['', Validators.required],
-      refEmailF1: ['', [Validators.required]],
-      refPhoneF1: ['', [Validators.required, ]],
-      refCityF1: ['', Validators.required],
-      refNameF2: ['', Validators.required],
-      refEmailF2: ['', [Validators.required]],
-      refPhoneF2: ['', [Validators.required, ]],
-      refCityF2: ['', Validators.required],
-      refNameF3: ['', Validators.required],
-      refEmailF3: ['', [Validators.required]],
-      refPhoneF3: ['', [Validators.required, ]],
-      refCityF3: ['', Validators.required],
-      identityDocument: ['', Validators.required],
-    });
+   
   }
 
   onIsError(): void {
